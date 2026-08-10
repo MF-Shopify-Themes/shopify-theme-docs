@@ -1,3 +1,8 @@
+---
+layout: default
+title: How to Install
+---
+
 ### 📥 How to upload a theme .zip file to Shopify
 
 Installing a premium theme on your Shopify store is a straightforward process. Follow these quick steps to get started: 
