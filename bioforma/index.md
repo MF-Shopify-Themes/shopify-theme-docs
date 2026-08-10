@@ -17,6 +17,6 @@ Click on any topic below to learn how to configure your BioForma theme using the
 
 ### ✉️ Need Help?
 
-If you have any questions or encounter issues while setting up BioForma, please open a support ticket or contact me directly at [**marcofra83@gmail.com**](mailto:marcofra83@gmail.com). 
+If you have any questions or encounter issues while setting up BioForma, please open a support ticket or contact me directly at [**BioForma Support**](mailto:bioforma-support@mfshopifythemes.anonaddy.com). 
 
 [⬅️ Back to Main Index](../README.md)
