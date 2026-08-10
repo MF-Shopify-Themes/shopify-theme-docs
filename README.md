@@ -22,11 +22,23 @@ Common instructions applicable across our Shopify ecosystem: 
 2. **[Updating your Shopify theme safely](./general/theme-updates)**
 3. **[Theme licensing and usage](./general/licensing)**
 
-### ✉️ Support & Feedback
 
-Need help with **BioForma**? 
+## ✉️ Support & Feedback
 
-* Check out our **[Troubleshooting Guide](./general/troubleshooting.md)**.
-* If you encounter bugs or need assistance, please open a support ticket at [**MF Shopify Themes Support**](mailto:support@mfshopifythemes.anonaddy.com).
+Need help with our themes? Fill out the form below to open a support ticket.
+
+<form action="https://formspree.io/f/xbgrgwbl" method="POST" style="margin-top: 20px; max-width: 500px;">
+  <div style="margin-bottom: 15px;">
+    <label for="email" style="display: block; margin-bottom: 5px; font-weight: bold;">Your Email Address:</label>
+    <input type="email" name="email" id="email" required style="width: 100%; padding: 8px; border-radius: 4px; border: 1px solid #ccc; color: #333;">
+  </div>
+  
+  <div style="margin-bottom: 15px;">
+    <label for="message" style="display: block; margin-bottom: 5px; font-weight: bold;">Message / Issue Description:</label>
+    <textarea name="message" id="message" rows="5" required style="width: 100%; padding: 8px; border-radius: 4px; border: 1px solid #ccc; color: #333; font-family: sans-serif;"></textarea>
+  </div>
+
+  <button type="submit" style="background-color: #007bff; color: white; border: none; padding: 10px 20px; border-radius: 4px; cursor: pointer; font-weight: bold;">Submit Ticket</button>
+</form>
 
 © 2026 Marco Francaviglia. All rights reserved. Shopify is a trademark of Shopify Inc.
