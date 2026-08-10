@@ -27,6 +27,6 @@ Common instructions applicable across our Shopify ecosystem: 
 Need help with **BioForma**? 
 
 * Check out our **[Troubleshooting Guide](./general/troubleshooting.md)**.
-* If you encounter bugs or need assistance, please open a support ticket at **marcofra83@gmail.com**.
+* If you encounter bugs or need assistance, please open a support ticket at [**marcofra83@gmail.com**](mailto:marcofra83@gmail.com).
 
 © 2026 Marco Francaviglia. All rights reserved. Shopify is a trademark of Shopify Inc.
