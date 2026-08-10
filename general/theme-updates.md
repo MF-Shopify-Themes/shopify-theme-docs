@@ -1,4 +1,9 @@
-### 🔄 Updating your Shopify theme safely
+---
+layout: default
+title: Theme Updates
+---
+
+# 🔄 Updating your Shopify theme safely
 
 Keeping your theme updated ensures your store benefits from the latest performance tweaks, bug fixes, and Shopify compatibility updates. 
 
