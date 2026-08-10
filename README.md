@@ -27,6 +27,8 @@ Common instructions applicable across our Shopify ecosystem: 
 
 Need help with our themes? Fill out the form below to open a support ticket.
 
+
+
 <form action="https://formspree.io/f/xbgrgwbl" method="POST" style="margin-top: 20px; max-width: 500px;">
   <div style="margin-bottom: 15px;">
     <label for="email" style="display: block; margin-bottom: 5px; font-weight: bold;">Your Email Address:</label>
@@ -40,5 +42,7 @@ Need help with our themes? Fill out the form below to open a support ticket.
 
   <button type="submit" style="background-color: #007bff; color: white; border: none; padding: 10px 20px; border-radius: 4px; cursor: pointer; font-weight: bold;">Submit Ticket</button>
 </form>
+
+
 
 © 2026 Marco Francaviglia. All rights reserved. Shopify is a trademark of Shopify Inc.
