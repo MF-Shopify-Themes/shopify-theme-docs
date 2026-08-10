@@ -1,4 +1,9 @@
-### 🌿 BioForma Theme Documentation
+---
+layout: default
+title: BioForma Theme Documentation
+---
+
+# 🌿 BioForma Theme Documentation
 
 Welcome to the documentation hub for **BioForma**, a Shopify theme tailored for Nootropics, Supplements, Health, and Beauty stores. 
 
