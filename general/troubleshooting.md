@@ -27,6 +27,6 @@ Here are the solutions to the most common issues you might encounter while setti
 
 ### ✉️ Still Need Help?
 
-If your issue is not listed here, please open a support ticket or contact me directly at **[marcofra83@gmail.com]**. 
+If your issue is not listed here, please open a support ticket or contact me directly at [**marcofra83@gmail.com**](mailto:marcofra83@gmail.com). 
 
 [⬅️ Back to Main Index](../README.md)
