@@ -18,9 +18,9 @@ BioForma is a premium, high-performance Shopify theme specifically engineered fo
 
 Common instructions applicable across our Shopify ecosystem: 
 
-1. **[How to upload a theme .zip file to Shopify](./general/how-to-install.md)**
-2. **[Updating your Shopify theme safely](./general/theme-updates.md)**
-3. **[Theme licensing and usage](./general/licensing.md)**
+1. **[How to upload a theme .zip file to Shopify](./general/how-to-install)**
+2. **[Updating your Shopify theme safely](./general/theme-updates)**
+3. **[Theme licensing and usage](./general/licensing)**
 
 ### ✉️ Support & Feedback
 
