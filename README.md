@@ -25,7 +25,7 @@ Common instructions applicable across our Shopify ecosystem: 
 
 ## ✉️ Support & Feedback
 
-Need help with our themes? Please check our **[Troubleshooting Guide](./general/troubleshooting)** first to see if your issue can be resolved immediately. 
+Need help with our themes? Please check our **[Troubleshooting Guide](./general/troubleshooting.md)** first to see if your issue can be resolved immediately. 
 
 If you cannot find the answer there, please fill out the form below to open a support ticket:
 
