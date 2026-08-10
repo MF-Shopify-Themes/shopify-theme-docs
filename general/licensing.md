@@ -1,4 +1,9 @@
-### 📜 Theme licensing and usage
+---
+layout: default
+title: Licensing
+---
+
+# 📜 Theme licensing and usage
 
 By purchasing and downloading a theme from this organization, you agree to the following standard licensing terms: 
 
