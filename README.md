@@ -8,6 +8,8 @@ Welcome to the official documentation portal for Shopify themes developed by **M
 
 BioForma is a premium, high-performance Shopify theme specifically engineered for **Nootropics, dietary supplements, health, and beauty brands**. It features conversion-optimized layouts, clear ingredient transparency blocks, and compliance-ready sections tailored for the wellness industry. 
 
+👉 **[Explore the BioForma Documentation Hub](./bioforma/index.md)**
+
 * 🚀 **[Quick Start & Installation](./bioforma/installation.md)** – Get your theme up and running in minutes.
 * 🧩 **[Theme Sections & Blocks](./bioforma/sections.md)** – Learn how to customize your homepage, ingredient grids, and product pages.
 * ⚙️ **[Theme Settings](./bioforma/settings.md)** – Configure typography, wellness-focused color palettes, and layout options.
