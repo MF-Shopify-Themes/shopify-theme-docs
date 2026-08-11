@@ -27,6 +27,20 @@ Customize how the shopping cart behaves when a customer adds a product: 
 
 Input your official brand links (Instagram, TikTok, Facebook, etc.). Icons will automatically appear in your footer and mobile navigation menu. 
 
+### 🌐 5. Multi-Language & Translations
+
+BioForma features native, ready-to-use multi-language support built directly into the theme via standard Shopify locale translation files (`locales/`).
+
+The theme comes pre-translated out of the box in 6 languages:
+* 🇬🇧 **English** (`en` - Default)
+* 🇩🇪 **German** (`de`)
+* 🇪🇸 **Spanish** (`es`)
+* 🇫🇷 **French** (`fr`)
+* 🇮🇹 **Italian** (`it`)
+* 🇵🇹 **Portuguese** (`pt`)
+
+To enable multi-language browsing for your customers, configure your target languages in **Shopify Admin > Settings > Languages** (or **Shopify Markets**) and enable the native Language Selector in your Header or Footer section settings.
+
 ### 💡 Quick Tip
 
 Changes made in the **Theme Settings** tab apply store-wide. If you want to customize the layout of a single specific page, use the **Sections** tab instead. 

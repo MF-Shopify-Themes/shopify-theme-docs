@@ -13,7 +13,7 @@ Click on any topic below to learn how to configure your BioForma theme using the
 
 * 🚀 **[Theme Installation](./installation.md)** – How to upload and publish the theme .zip file.
 * 🧩 **[Sections & Layouts](./sections.md)** – How to use and customize the drag-and-drop sections (Homepage, Product Pages, Ingredient Grids).
-* ⚙️ **[Global Settings](./settings.md)** – How to configure your store's colors, typography, and cart options.
+* ⚙️ **[Global Settings & Multi-Language](./settings.md)** – How to configure your store's colors, typography, cart options, and multi-language translations.
 
 ### ✉️ Need Help?
 
