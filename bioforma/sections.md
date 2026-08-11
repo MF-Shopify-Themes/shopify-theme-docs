@@ -21,11 +21,14 @@ The product template includes specialized blocks to help convert visitors into c
 * **Collapsible Tabs:** Perfect for organizing dense information without cluttering the page. Use them for *Ingredients, Supplement Facts, Usage Instructions,* and *Shipping Policy*.
 * **Related Products:** Automatically recommend complementary products (e.g., suggesting a beauty cream to match a dietary supplement).
 
-#### 🧪 Product Ingredients Matrix (Pure Database Architecture)
+#### 🧪 Product Ingredients Matrix & Supplement Facts Table (Pure Database Architecture)
 
-The **Product Ingredients Matrix** section is a 100% database-driven component engineered for seamless catalog portability and structured data management. It automatically ingests structured payload data directly from `product.metafields.bioforma.ingredients_list.value` (JSON type).
+BioForma includes two 100% database-driven components engineered for scientific transparency and structured data management. Both components automatically ingest structured payload data directly from native Shopify Product Metafields under the `bioforma` namespace.
 
-##### 🔹 Setup & Data Configuration
+##### 1. Product Ingredients Matrix (`bioforma.ingredients_list`)
+Renders full molecular composition lists via `sections/product-ingredients.liquid`.
+
+###### 🔹 Setup & Data Configuration
 
 **Step 1: Metafield Definition**
 *(Perform once for the entire store)*
@@ -33,7 +36,7 @@ The **Product Ingredients Matrix** section is a 100% database-driven component e
 2. Click **Add definition** and configure the fields:
    - **Name**: `Ingredients List`
    - **Namespace and key**: `bioforma.ingredients_list`
-   - **Type**: Select **JSON** (or **Multi-line text**).
+   - **Type**: Select **JSON**.
 3. Click **Save**.
 
 **Step 2: Connecting in Theme Editor**
@@ -65,8 +68,49 @@ The **Product Ingredients Matrix** section is a 100% database-driven component e
 ]
 ```
 
+##### 2. Supplement Facts Table (`bioforma.supplement_facts`)
+Renders an interactive nutritional facts table with scientific detail micro-drawers via `snippets/product-supplement-facts.liquid` and the `supplement_facts` Theme Block.
+
+###### 🔹 Setup & Data Configuration
+
+**Step 1: Metafield Definition**
+*(Perform once for the entire store)*
+1. In Shopify Admin, navigate to **Settings** → **Custom Data** → **Products**.
+2. Click **Add definition** and configure the fields:
+   - **Name**: `Supplement Facts`
+   - **Namespace and key**: `bioforma.supplement_facts`
+   - **Type**: Select **JSON**.
+3. Click **Save**.
+
+**Step 2: Connecting in Theme Editor**
+1. Open the **Shopify Theme Editor (Customize)** on a Product page template.
+2. In the Product section, click **Add block** and select **Supplement facts**.
+3. Reorder the block vertically using the drag handle as desired.
+4. Click **Save**.
+
+**Step 3: Populating Product Metafield Data**
+1. Navigate to any individual Product in Shopify Admin and scroll to the Metafields area.
+2. Locate `Supplement Facts` and enter the structured JSON array using the active keys (`name`, `amount`, `daily_value`, `benefits`):
+
+```json
+[
+  {
+    "name": "NMN (Nicotinamide Mononucleotide)",
+    "amount": "500 mg",
+    "daily_value": "*",
+    "benefits": "Direct high-purity NAD+ precursor. Promotes cellular DNA repair, mitochondrial health, and systemic longevity."
+  },
+  {
+    "name": "Trans-Resveratrol 99%",
+    "amount": "250 mg",
+    "daily_value": "*",
+    "benefits": "Potent antioxidant polyphenol extracted from Polygonum cuspidatum. Activates sirtuins (SIRT1) and optimizes NAD+ efficacy."
+  }
+]
+```
+
 ##### 💡 Onboarding Context & Theme Editor Behavior
-When no metafield data is detected on an active product page, the component renders an elegant onboarding container placeholder strictly visible within the Shopify Theme Editor (`request.design_mode`) to guide the merchant through initial setup without impacting live store rendering.
+When no metafield data is detected on an active storefront product page, zero HTML markup is rendered to prevent empty structural containers. However, inside the Shopify Theme Editor (`request.design_mode`), an onboarding dashed container placeholder is rendered strictly for merchant setup guidance.
 
 ### 📄 Customizing Other Pages
 
