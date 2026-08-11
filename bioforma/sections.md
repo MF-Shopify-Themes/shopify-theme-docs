@@ -21,44 +21,29 @@ The product template includes specialized blocks to help convert visitors into c
 * **Collapsible Tabs:** Perfect for organizing dense information without cluttering the page. Use them for *Ingredients, Supplement Facts, Usage Instructions,* and *Shipping Policy*.
 * **Related Products:** Automatically recommend complementary products (e.g., suggesting a beauty cream to match a dietary supplement).
 
-#### 🧪 Product Ingredients Matrix (Dual-Engine Dynamic Fallback)
+#### 🧪 Product Ingredients Matrix (Pure Database Architecture)
 
-La sezione **Product Ingredients Matrix** è progettata con un'architettura ibrida avanzata. Offre due metodi indipendenti per inserire i componenti attivi, i dosaggi e le funzioni cliniche, bilanciando l'estrema facilità d'uso nel Customizer con la portabilità totale dei dati del catalogo tramite esportazione in file CSV.
+The **Product Ingredients Matrix** section is a 100% database-driven component engineered for seamless catalog portability and structured data management. It automatically ingests structured payload data directly from `product.metafields.bioforma.ingredients_list.value` (JSON type).
 
-Il codice del tema controlla automaticamente la presenza di dati nel database del prodotto; se il database è vuoto, scala istantaneamente sul layout grafico dei blocchi nativi.
+##### 🔹 Setup & Data Configuration
 
-##### 🔹 Opzione A: Gestione Visiva tramite Blocchi Nativi (Metodo Rapido)
-Ideale per cataloghi ridotti o per un setup istantaneo senza configurazioni esterne al codice del tema.
-1. Apri lo **Shopify Theme Editor (Personalizza)** e naviga sulla pagina di un Prodotto.
-2. Nel pannello di sinistra, clicca su **Aggiungi sezione** e seleziona **Product Ingredients**.
-3. Sotto la sezione appena creata, clicca su **Aggiungi blocco** (Aggiungi Ingrediente).
-4. Compila direttamente i tre campi grafici visivi nel pannello:
-   - *Ingredient Name*: Il nome scientifico del composto (es. `Suntheanine® L-Theanine`).
-   - *Clinical Dosage*: La quantità esatta (es. `200 mg`).
-   - *Biological Function*: La descrizione dell'azione biochimica (es. `Aumenta l'attività delle onde cerebrali alfa`).
-5. Puoi trascinare, riordinare o eliminare i blocchi liberamente. I dati verranno salvati esclusivamente nel layout del template di quella pagina.
+**Step 1: Metafield Definition**
+*(Perform once for the entire store)*
+1. In Shopify Admin, navigate to **Settings** → **Custom Data** → **Products**.
+2. Click **Add definition** and configure the fields:
+   - **Name**: `Ingredients List`
+   - **Namespace and key**: `bioforma.ingredients_list`
+   - **Type**: Select **JSON** (or **Multi-line text**).
+3. Click **Save**.
 
-##### 🔸 Opzione B: Gestione tramite Metafield JSON (Metodo Avanzato e Portabile via CSV)
-Raccomandato per store con molteplici referenze e formule uniche. Questo approccio lega i dati chimici direttamente alla scheda del singolo prodotto nel database di Shopify, permettendo di esportare e reimportare tutto massivamente tramite file CSV senza perdere le informazioni.
+**Step 2: Connecting in Theme Editor**
+1. Open the **Shopify Theme Editor (Customize)** and select the **Product Ingredients** section.
+2. Connect the **Ingredients JSON** field to the `Ingredients List` dynamic source.
+3. Click **Save**.
 
-**Fase 1: Registrazione del Canale nel Database**
-*(Operazione da eseguire una sola volta per l'intero store)*
-1. Dal pannello di controllo principale di Shopify, vai su **Impostazioni (Settings)** → **Dati personalizzati (Custom Data)** → **Prodotti (Products)**.
-2. Clicca su **Aggiungi definizione** e compila rigorosamente i seguenti campi:
-   - **Nome**: `Ingredients List`
-   - **Spazio dei nomi e chiave**: `bioforma.ingredients_list`
-   - **Tipo**: Cambia la selezione impostando **Valore singolo** e poi **Testo su più righe** (Multi-line text).
-3. Clicca su **Salva**.
-
-**Fase 2: Connessione nel Theme Editor**
-1. Apri il **Theme Editor**, seleziona la sezione *Product Ingredients* a sinistra.
-2. Posizionati sopra il campo **Ingredients JSON** e fai clic sull'icona rotonda del **Vettore Dinamico (Dynamic Source)** (il foglietto con il simbolo `+`).
-3. Seleziona dalla lista la voce **Ingredients List** appena creata e clicca su **Salva**.
-
-**Fase 3: Inserimento dei Dati Molecolari Strutturati**
-1. Vai nella scheda del prodotto reale nel pannello di amministrazione di Shopify e scorri la pagina fino in fondo.
-2. Troverai la casella vuota del metafield `Ingredients List`.
-3. Incolla all'interno dell'area di testo la struttura JSON dettagliata seguendo questo pattern sintattico rigido a prova di errore:
+**Step 3: Populating Product Metafield Data**
+1. Navigate to any individual Product in Shopify Admin and scroll to the Metafields area.
+2. Locate `Ingredients List` and enter the structured JSON array using the active keys (`name`, `dosage`, `function`):
 
 ```json
 [
@@ -79,7 +64,9 @@ Raccomandato per store con molteplici referenze e formule uniche. Questo approcc
   }
 ]
 ```
-4. Salva la scheda del prodotto. Il tema rileverà la stringa, scompatterà l'array in memoria e sostituirà l'avviso di onboarding con la griglia asimmetrica a CLS: 0.00.
+
+##### 💡 Onboarding Context & Theme Editor Behavior
+When no metafield data is detected on an active product page, the component renders an elegant onboarding container placeholder strictly visible within the Shopify Theme Editor (`request.design_mode`) to guide the merchant through initial setup without impacting live store rendering.
 
 ### 📄 Customizing Other Pages
 
