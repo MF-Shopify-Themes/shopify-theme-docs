@@ -69,7 +69,7 @@ Renders full molecular composition lists via `sections/product-ingredients.liqui
 ```
 
 ##### 2. Supplement Facts Table (`bioforma.supplement_facts`)
-Renders an interactive nutritional facts table with scientific detail micro-drawers via `snippets/product-supplement-facts.liquid` and the `supplement_facts` Theme Block.
+Renders an interactive nutritional facts table with scientific detail micro-drawers via `sections/product-supplement-facts.liquid`.
 
 ###### 🔹 Setup & Data Configuration
 
@@ -84,29 +84,35 @@ Renders an interactive nutritional facts table with scientific detail micro-draw
 
 **Step 2: Connecting in Theme Editor**
 1. Open the **Shopify Theme Editor (Customize)** on a Product page template.
-2. In the Product section, click **Add block** and select **Supplement facts**.
-3. Reorder the block vertically using the drag handle as desired.
-4. Click **Save**.
+2. Scroll to the bottom of the section list and click **Add section**.
+3. Select **Supplement facts**.
+4. Reorder the section vertically using the drag handle (⋮⋮) as desired.
+5. Click **Save**.
 
 **Step 3: Populating Product Metafield Data**
 1. Navigate to any individual Product in Shopify Admin and scroll to the Metafields area.
-2. Locate `Supplement Facts` and enter the structured JSON array using the active keys (`name`, `amount`, `daily_value`, `benefits`):
+2. Locate `Supplement Facts` and enter the structured JSON object with key/value header fields and the `ingredients` array:
 
 ```json
-[
-  {
-    "name": "NMN (Nicotinamide Mononucleotide)",
-    "amount": "500 mg",
-    "daily_value": "*",
-    "benefits": "Direct high-purity NAD+ precursor. Promotes cellular DNA repair, mitochondrial health, and systemic longevity."
-  },
-  {
-    "name": "Trans-Resveratrol 99%",
-    "amount": "250 mg",
-    "daily_value": "*",
-    "benefits": "Potent antioxidant polyphenol extracted from Polygonum cuspidatum. Activates sirtuins (SIRT1) and optimizes NAD+ efficacy."
-  }
-]
+{
+  "daily_serving": "2 capsules",
+  "servings_per_container": "30 (60 capsules)",
+  "footnote": "* Reference Intake (NRV) not established. Third-party laboratory certified ultra-pure formula.",
+  "ingredients": [
+    {
+      "name": "NMN (Nicotinamide Mononucleotide)",
+      "amount": "500 mg",
+      "daily_value": "*",
+      "benefits": "Direct high-purity NAD+ precursor. Promotes cellular DNA repair, mitochondrial health, and systemic longevity."
+    },
+    {
+      "name": "Trans-Resveratrol 99%",
+      "amount": "250 mg",
+      "daily_value": "*",
+      "benefits": "Potent antioxidant polyphenol extracted from Polygonum cuspidatum. Activates sirtuins (SIRT1) and optimizes NAD+ efficacy."
+    }
+  ]
+}
 ```
 
 ##### 💡 Onboarding Context & Theme Editor Behavior
