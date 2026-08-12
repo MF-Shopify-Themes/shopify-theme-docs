@@ -27,6 +27,7 @@ To customize your layout, open the Shopify Theme Editor and look at the **Sectio
 * 🛒 [Smart AJAX Cart Drawer (`<cart-drawer>`)](#cart-drawer)
 * ⚡ [High-Performance App Wrapper (`<high-perf-app-wrapper>`)](#app-wrapper)
 * ❓ [Multi-Instance FAQ Search (`<faq-search>`)](#faq-search)
+* 📜 [Institutional Footer & Certificates of Analysis (CoA)](#institutional-footer)
 * 📄 [Customizing Other Pages](#customizing-other-pages)
 * 💡 [How to Add a Section](#how-to-add-a-section)
 
@@ -253,6 +254,32 @@ The BioForma FAQ section (`sections/faq-search.liquid` & `assets/faq-search.js`)
 * **Scoped Multi-Instance Search**: Custom element `<faq-search>` uses strictly scoped DOM queries to isolate search operations per section instance without global ID conflicts.
 * **White Clinical Aesthetics**: Minimalist accordion UI built with accessible HTML5 `<details>` and `<summary>` elements with fine dividers and plus-to-close micro-interactions.
 * **Zero Layout Jumps (0.00 CLS)**: Hardware-accelerated CSS Grid transitions (`grid-template-rows: 0fr` → `1fr`) lock layout shifts at absolute `0.00` during expand, collapse, and search filtering.
+
+[⬆️ Back to Table of Contents](#table-of-contents)
+
+---
+
+<a id="institutional-footer"></a>
+### 📜 Institutional Footer & Certificates of Analysis (CoA)
+
+BioForma includes an Institutional Footer (`sections/footer.liquid`) engineered for medical transparency, trust badges, and downloadable third-party laboratory Certificates of Analysis (CoA).
+
+#### 🧪 How to Upload & Link Custom CoA PDF Documents
+1. **Upload your PDF to Shopify**:
+   * In Shopify Admin, navigate to **Content** → **Files** (or **Settings** → **Files**).
+   * Click **Upload files** and select your laboratory CoA PDF.
+   * Once uploaded, click the **Link icon** next to the file to copy its CDN URL (e.g., `https://cdn.shopify.com/s/files/.../coa.pdf`).
+
+2. **Connect the PDF Link in Theme Customizer**:
+   * Open the **Shopify Theme Customizer (Customize)**.
+   * In the left sidebar under **Institutional footer**, click on a **CoA certificate** block (e.g., *CoA NMN Ultra Pure 99.8%*).
+   * Paste the copied URL into the **Link to PDF document (CoA)** field.
+
+> [!IMPORTANT]
+> ⚠️ **Shopify Theme Editor URL Confirmation Requirement**: When pasting a URL into a Shopify Theme Customizer URL input field, you **must click the pop-up suggestion item** (`Paste link: https://...`) that appears directly below the input box. If you do not click the pop-up suggestion dropdown item, Shopify will not register the URL string and the **Save** button will remain disabled.
+
+3. **Automatic Demo Fallback**:
+   * If the PDF URL setting is left empty or set to `#`, BioForma automatically falls back to sample demonstration PDFs (`coa-nmn-ultra-pure.pdf` and `coa-molecular-spermidine.pdf`) located in the theme's `assets/` directory.
 
 [⬆️ Back to Table of Contents](#table-of-contents)
 
