@@ -1,33 +1,62 @@
+<a id="table-of-contents"></a>
 ### 🧩 BioForma Sections & Layouts
 
-BioForma uses Shopify's Online Store 2.0 architecture, allowing you to add, remove, and reorder drag-and-drop sections on any page of your store. 
+BioForma uses Shopify's Online Store 2.0 architecture, allowing you to add, remove, and reorder drag-and-drop sections on any page of your store. 
 
-To customize your layout, open the Shopify Theme Editor and look at the **Sections tab (Layers icon)** in the left sidebar. 
+To customize your layout, open the Shopify Theme Editor and look at the **Sections tab (Layers icon)** in the left sidebar. 
 
+---
+
+### 📌 Table of Contents
+
+* 🏠 [Homepage Sections](#homepage-sections)
+* 📦 [Product Page Sections](#product-page-sections)
+  * 🧪 [Product Ingredients Matrix & Supplement Facts Table](#database-driven-components)
+    * 1️⃣ [Product Ingredients Matrix (`bioforma.ingredients_list`)](#ingredients-matrix)
+      * 🔹 [Setup & Data Configuration](#ingredients-setup)
+      * 🛠️ [Interactive JSON Generator (Ingredients List)](#ingredients-generator-tool)
+    * 2️⃣ [Supplement Facts Table (`bioforma.supplement_facts`)](#supplement-facts)
+      * 🔹 [Setup & Data Configuration](#supplement-facts-setup)
+      * 🛠️ [Interactive JSON Generator (Supplement Facts)](#supplement-facts-generator-tool)
+    * 💡 [Onboarding Context & Theme Editor Behavior](#onboarding-behavior)
+* 📄 [Customizing Other Pages](#customizing-other-pages)
+* 💡 [How to Add a Section](#how-to-add-a-section)
+
+---
+
+<a id="homepage-sections"></a>
 ### 🏠 Homepage Sections
 
-You can build your homepage by stacking standard modular sections: 
+You can build your homepage by stacking standard modular sections: 
 
 * **Hero Banner / Slideshow:** Use high-quality imagery to introduce your main supplement or beauty line with clear Call-to-Action buttons.
 * **Featured Collection:** Display a grid of your top-selling products or new nootropic releases.
 * **Icon Grid / Brand Benefits:** A row of text and icons to quickly highlight key product claims (e.g., *100% Organic, Laboratory Tested, Made in Italy*).
 * **Rich Text / Brand Story:** Share the science or philosophy behind your health and wellness products.
 
+[⬆️ Back to Table of Contents](#table-of-contents)
+
+---
+
+<a id="product-page-sections"></a>
 ### 📦 Product Page Sections
 
-The product template includes specialized blocks to help convert visitors into customers: 
+The product template includes specialized blocks to help convert visitors into customers: 
 
 * **Product Information:** The core block containing the title, price, variant selectors, and the main buy button.
 * **Collapsible Tabs:** Perfect for organizing dense information without cluttering the page. Use them for *Ingredients, Supplement Facts, Usage Instructions,* and *Shipping Policy*.
 * **Related Products:** Automatically recommend complementary products (e.g., suggesting a beauty cream to match a dietary supplement).
 
+<a id="database-driven-components"></a>
 #### 🧪 Product Ingredients Matrix & Supplement Facts Table (Pure Database Architecture)
 
 BioForma includes two 100% database-driven components engineered for scientific transparency and structured data management. Both components automatically ingest structured payload data directly from native Shopify Product Metafields under the `bioforma` namespace.
 
+<a id="ingredients-matrix"></a>
 ##### 1. Product Ingredients Matrix (`bioforma.ingredients_list`)
 Renders full molecular composition lists via `sections/product-ingredients.liquid`.
 
+<a id="ingredients-setup"></a>
 ###### 🔹 Setup & Data Configuration
 
 **Step 1: Metafield Definition**
@@ -68,14 +97,21 @@ Renders full molecular composition lists via `sections/product-ingredients.liqui
 ]
 ```
 
+<a id="ingredients-generator-tool"></a>
 ###### 🛠️ Interactive JSON Generator (Ingredients List)
 Fill out the table below to generate valid JSON automatically. **You can drag and drop rows vertically using the drag handle (`⋮⋮`) to reorder ingredients**. Once all fields are completed, click **Copy JSON to Clipboard** and paste it directly into the product metafield in Shopify Admin:
 
 {% include ingredients-generator.html %}
 
+[⬆️ Back to Table of Contents](#table-of-contents)
+
+---
+
+<a id="supplement-facts"></a>
 ##### 2. Supplement Facts Table (`bioforma.supplement_facts`)
 Renders an interactive nutritional facts table with scientific detail micro-drawers via `sections/product-supplement-facts.liquid`.
 
+<a id="supplement-facts-setup"></a>
 ###### 🔹 Setup & Data Configuration
 
 **Step 1: Metafield Definition**
@@ -120,23 +156,43 @@ Renders an interactive nutritional facts table with scientific detail micro-draw
 }
 ```
 
+<a id="supplement-facts-generator-tool"></a>
 ###### 🛠️ Interactive JSON Generator (Supplement Facts)
 Fill out the dosage header fields and ingredients table below to generate valid JSON automatically. **You can drag and drop rows vertically using the drag handle (`⋮⋮`) to reorder ingredients**. Once all fields are completed, click **Copy JSON to Clipboard** and paste it directly into the product metafield in Shopify Admin:
 
 {% include supplement-facts-generator.html %}
 
+[⬆️ Back to Table of Contents](#table-of-contents)
+
+---
+
+<a id="onboarding-behavior"></a>
 ##### 💡 Onboarding Context & Theme Editor Behavior
 When no metafield data is detected on an active storefront product page, zero HTML markup is rendered to prevent empty structural containers. However, inside the Shopify Theme Editor (`request.design_mode`), an onboarding dashed container placeholder is rendered strictly for merchant setup guidance.
 
+[⬆️ Back to Table of Contents](#table-of-contents)
+
+---
+
+<a id="customizing-other-pages"></a>
 ### 📄 Customizing Other Pages
 
-You can also add sections to your **About Us**, **FAQ**, or **Blog** pages to create a cohesive design across your entire website. 
+You can also add sections to your **About Us**, **FAQ**, or **Blog** pages to create a cohesive design across your entire website. 
 
+[⬆️ Back to Table of Contents](#table-of-contents)
+
+---
+
+<a id="how-to-add-a-section"></a>
 ### 💡 How to Add a Section
 
 1. Navigate to the page you want to edit using the top dropdown menu in the Theme Editor.
 2. In the left sidebar, scroll to the bottom of the section list and click **Add section**.
 3. Choose a section from the list.
 4. Drag the section using the ⋮⋮ icon to change its vertical position on the page.
+
+[⬆️ Back to Table of Contents](#table-of-contents)
+
+---
 
 [⬅️ Back to BioForma Index](./index.md)
