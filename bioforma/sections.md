@@ -28,6 +28,10 @@ BioForma includes two 100% database-driven components engineered for scientific 
 ##### 1. Product Ingredients Matrix (`bioforma.ingredients_list`)
 Renders full molecular composition lists via `sections/product-ingredients.liquid`.
 
+<p align="center">
+  <img src="../assets/images/ingredients-matrix-preview.png" alt="Product Ingredients Matrix Preview" style="max-width: 100%; height: auto;">
+</p>
+
 ###### 🔹 Setup & Data Configuration
 
 **Step 1: Metafield Definition**
@@ -75,6 +79,10 @@ Fill out the table below to generate valid JSON automatically. **You can drag an
 
 ##### 2. Supplement Facts Table (`bioforma.supplement_facts`)
 Renders an interactive nutritional facts table with scientific detail micro-drawers via `sections/product-supplement-facts.liquid`.
+
+<p align="center">
+  <img src="../assets/images/supplement-facts-preview.png" alt="Supplement Facts Table Preview" style="max-width: 100%; height: auto;">
+</p>
 
 ###### 🔹 Setup & Data Configuration
 
