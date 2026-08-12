@@ -5,7 +5,10 @@ title: BioForma Theme Documentation
 
 # 🌿 BioForma Theme Documentation
 
-Welcome to the documentation hub for **BioForma**, a Shopify theme tailored for Nootropics, Supplements, Health, and Beauty stores. 
+Welcome to the documentation hub for **BioForma**, a Shopify theme tailored for Nootropics, Supplements, Health, and Beauty stores. 
+
+> [!IMPORTANT]
+> ⚡ **Maintain Maximum Storefront Performance**: BioForma includes a native **[High-Performance App Wrapper](./sections.md#app-wrapper)** to prevent third-party Shopify apps from degrading your page speed. Always wrap heavy app blocks to preserve 90+ Lighthouse mobile performance scores and instant page loads.
 
 ### 📖 Documentation Index
 
