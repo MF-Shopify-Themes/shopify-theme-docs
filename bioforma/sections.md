@@ -69,7 +69,7 @@ Renders full molecular composition lists via `sections/product-ingredients.liqui
 ```
 
 ###### 🛠️ Interactive JSON Generator (Ingredients List)
-Fill out the table below to generate valid JSON automatically. Once all fields are completed, click **Copia JSON negli Appunti** and paste it directly into the product metafield in Shopify Admin:
+Fill out the table below to generate valid JSON automatically. **You can drag and drop rows vertically using the drag handle (`⋮⋮`) to reorder ingredients**. Once all fields are completed, click **Copia JSON negli Appunti** and paste it directly into the product metafield in Shopify Admin:
 
 {% include ingredients-generator.html %}
 
@@ -121,7 +121,7 @@ Renders an interactive nutritional facts table with scientific detail micro-draw
 ```
 
 ###### 🛠️ Interactive JSON Generator (Supplement Facts)
-Fill out the dosage header fields and ingredients table below to generate valid JSON automatically. Once all fields are completed, click **Copia JSON negli Appunti** and paste it directly into the product metafield in Shopify Admin:
+Fill out the dosage header fields and ingredients table below to generate valid JSON automatically. **You can drag and drop rows vertically using the drag handle (`⋮⋮`) to reorder ingredients**. Once all fields are completed, click **Copia JSON negli Appunti** and paste it directly into the product metafield in Shopify Admin:
 
 {% include supplement-facts-generator.html %}
 

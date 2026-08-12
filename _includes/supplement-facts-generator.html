@@ -2,7 +2,7 @@
   <div class="generator-header">
     <h4 style="margin: 0 0 8px 0; color: #064e3b; font-weight: 700;">🧪 Generator Interattivo JSON: Supplement Facts Table</h4>
     <p style="margin: 0 0 16px 0; font-size: 0.9em; color: #334155;">
-      Compila le informazioni di dose giornaliera e la tabella nutrizionale per generare il JSON completo da incollare nel metafield <code>bioforma.supplement_facts</code>.
+      Compila le informazioni di dose giornaliera e la tabella nutrizionale per generare il JSON completo da incollare nel metafield <code>bioforma.supplement_facts</code>. <strong>Puoi trascinare le righe usando l'icona (⋮⋮) per riordinare gli ingredienti.</strong>
     </p>
   </div>
 
@@ -27,15 +27,16 @@
 
   <!-- Ingredients Table -->
   <div style="margin-bottom: 8px;">
-    <h5 style="margin: 0 0 8px 0; color: #0f172a; font-size: 0.9em; text-transform: uppercase; letter-spacing: 0.5px;">2. Tabella Ingredienti Funzionali</h5>
+    <h5 style="margin: 0 0 8px 0; color: #0f172a; font-size: 0.9em; text-transform: uppercase; letter-spacing: 0.5px;">2. Tabella Ingredienti Nutrizionali</h5>
   </div>
   <table class="generator-table">
     <thead>
       <tr>
-        <th style="width: 25%;">Functional Ingredient (Name)</th>
-        <th style="width: 18%;">Amount per Serving (Amount)</th>
+        <th style="width: 5%; text-align: center;"></th>
+        <th style="width: 24%;">Functional Ingredient (Name)</th>
+        <th style="width: 17%;">Amount per Serving (Amount)</th>
         <th style="width: 12%;">% NRV* (Daily Value)</th>
-        <th style="width: 35%;">Science & Benefits Drawer (Benefits)</th>
+        <th style="width: 32%;">Science & Benefits Drawer (Benefits)</th>
         <th style="width: 10%; text-align: center;">Azioni</th>
       </tr>
     </thead>
@@ -62,6 +63,8 @@
 
 <script>
 (function() {
+  let draggedSuppRow = null;
+
   const initialSuppData = [
     { name: "L-Citrulline Malate 2:1", amount: "3000 mg", daily_value: "*", benefits: "Precursore dell'ossido nitrico per la vasodilatazione e l'ossigenazione muscolare." },
     { name: "Grape Seed Extract (95% Proanthocyanidins)", amount: "300 mg", daily_value: "*", benefits: "Potente antiossidante per la salute cardiovascolare e il microcircolo." },
@@ -72,8 +75,10 @@
   window.addSuppRow = function(data = { name: '', amount: '', daily_value: '*', benefits: '' }) {
     const tbody = document.getElementById('supp-tbody');
     const tr = document.createElement('tr');
-    tr.className = 'supp-row';
+    tr.className = 'supp-row ingredient-row';
+    tr.setAttribute('draggable', 'true');
     tr.innerHTML = `
+      <td class="drag-handle" title="Trascina per riordinare">⋮⋮</td>
       <td><input type="text" class="inp-supp-name" placeholder="Es. L-Citrulline Malate" value="${escapeHtml(data.name)}" oninput="validateSupplementFactsForm()"></td>
       <td><input type="text" class="inp-supp-amount" placeholder="Es. 3000 mg" value="${escapeHtml(data.amount)}" oninput="validateSupplementFactsForm()"></td>
       <td><input type="text" class="inp-supp-dv" placeholder="Es. * o 83%" value="${escapeHtml(data.daily_value)}" oninput="validateSupplementFactsForm()"></td>
@@ -82,6 +87,34 @@
         <button type="button" class="btn-action btn-supp-remove-row" onclick="removeSuppRow(this)" title="Rimuovi Ingrediente">-</button>
       </td>
     `;
+
+    tr.addEventListener('dragstart', function(e) {
+      draggedSuppRow = this;
+      this.classList.add('dragging');
+      e.dataTransfer.effectAllowed = 'move';
+    });
+
+    tr.addEventListener('dragover', function(e) {
+      e.preventDefault();
+      e.dataTransfer.dropEffect = 'move';
+      const targetRow = this;
+      if (targetRow && targetRow !== draggedSuppRow && targetRow.parentNode === draggedSuppRow.parentNode) {
+        const bounding = targetRow.getBoundingClientRect();
+        const offset = e.clientY - bounding.top;
+        if (offset > bounding.height / 2) {
+          targetRow.parentNode.insertBefore(draggedSuppRow, targetRow.nextSibling);
+        } else {
+          targetRow.parentNode.insertBefore(draggedSuppRow, targetRow);
+        }
+      }
+    });
+
+    tr.addEventListener('dragend', function() {
+      this.classList.remove('dragging');
+      draggedSuppRow = null;
+      validateSupplementFactsForm();
+    });
+
     tbody.appendChild(tr);
     validateSupplementFactsForm();
   };

@@ -2,16 +2,17 @@
   <div class="generator-header">
     <h4 style="margin: 0 0 8px 0; color: #0d47a1; font-weight: 700;">✨ Generator Interattivo JSON: Ingredients List</h4>
     <p style="margin: 0 0 16px 0; font-size: 0.9em; color: #424242;">
-      Compila la tabella sottostante per generare automaticamente il payload JSON valido per il metafield <code>bioforma.ingredients_list</code>.
+      Compila la tabella sottostante per generare automaticamente il payload JSON valido per il metafield <code>bioforma.ingredients_list</code>. <strong>Puoi trascinare le righe usando l'icona (⋮⋮) per riordinare gli ingredienti.</strong>
     </p>
   </div>
 
   <table class="generator-table">
     <thead>
       <tr>
-        <th style="width: 28%;">Ingrediente (Name)</th>
-        <th style="width: 22%;">Dosaggio (Dosage)</th>
-        <th style="width: 40%;">Funzione Scientifica (Function)</th>
+        <th style="width: 5%; text-align: center;"></th>
+        <th style="width: 27%;">Ingrediente (Name)</th>
+        <th style="width: 20%;">Dosaggio (Dosage)</th>
+        <th style="width: 38%;">Funzione Scientifica (Function)</th>
         <th style="width: 10%; text-align: center;">Azioni</th>
       </tr>
     </thead>
@@ -67,6 +68,23 @@
   padding: 8px 10px;
   border-bottom: 1px solid #e2e8f0;
   vertical-align: middle;
+}
+.generator-table tr.ingredient-row {
+  transition: background 0.15s;
+}
+.generator-table tr.ingredient-row.dragging {
+  opacity: 0.4;
+  background: #e2e8f0;
+}
+.drag-handle {
+  cursor: grab;
+  user-select: none;
+  color: #64748b;
+  font-size: 1.2em;
+  font-weight: bold;
+}
+.drag-handle:active {
+  cursor: grabbing;
 }
 .generator-table input, .generator-table textarea {
   width: 100%;
@@ -150,6 +168,8 @@
 
 <script>
 (function() {
+  let draggedIngredientRow = null;
+
   const initialData = [
     { name: "Magnesium Bisglycinate Chelate", dosage: "400 mg", function: "Crosses blood-brain barrier to optimize REM and Slow-Wave deep sleep architecture." },
     { name: "Suntheanine® L-Theanine", dosage: "200 mg", function: "Increases alpha brainwave activity for deep relaxation without sedation." },
@@ -160,7 +180,9 @@
     const tbody = document.getElementById('ingredients-tbody');
     const tr = document.createElement('tr');
     tr.className = 'ingredient-row';
+    tr.setAttribute('draggable', 'true');
     tr.innerHTML = `
+      <td class="drag-handle" title="Trascina per riordinare">⋮⋮</td>
       <td><input type="text" class="inp-name" placeholder="Es. Magnesium Bisglycinate" value="${escapeHtml(data.name)}" oninput="validateIngredientsForm()"></td>
       <td><input type="text" class="inp-dosage" placeholder="Es. 400 mg" value="${escapeHtml(data.dosage)}" oninput="validateIngredientsForm()"></td>
       <td><input type="text" class="inp-function" placeholder="Es. Supporta il riposo profondo..." value="${escapeHtml(data.function)}" oninput="validateIngredientsForm()"></td>
@@ -168,6 +190,34 @@
         <button type="button" class="btn-action btn-remove-row" onclick="removeIngredientRow(this)" title="Rimuovi Ingrediente">-</button>
       </td>
     `;
+
+    tr.addEventListener('dragstart', function(e) {
+      draggedIngredientRow = this;
+      this.classList.add('dragging');
+      e.dataTransfer.effectAllowed = 'move';
+    });
+
+    tr.addEventListener('dragover', function(e) {
+      e.preventDefault();
+      e.dataTransfer.dropEffect = 'move';
+      const targetRow = this;
+      if (targetRow && targetRow !== draggedIngredientRow && targetRow.parentNode === draggedIngredientRow.parentNode) {
+        const bounding = targetRow.getBoundingClientRect();
+        const offset = e.clientY - bounding.top;
+        if (offset > bounding.height / 2) {
+          targetRow.parentNode.insertBefore(draggedIngredientRow, targetRow.nextSibling);
+        } else {
+          targetRow.parentNode.insertBefore(draggedIngredientRow, targetRow);
+        }
+      }
+    });
+
+    tr.addEventListener('dragend', function() {
+      this.classList.remove('dragging');
+      draggedIngredientRow = null;
+      validateIngredientsForm();
+    });
+
     tbody.appendChild(tr);
     validateIngredientsForm();
   };
@@ -189,7 +239,6 @@
     const rows = tbody.querySelectorAll('.ingredient-row');
     const removeBtns = tbody.querySelectorAll('.btn-remove-row');
     
-    // Enable/disable remove buttons based on row count (> 1)
     removeBtns.forEach(btn => {
       btn.style.visibility = rows.length > 1 ? 'visible' : 'hidden';
     });
