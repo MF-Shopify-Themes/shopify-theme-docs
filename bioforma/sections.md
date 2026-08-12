@@ -260,9 +260,13 @@ The BioForma FAQ section (`sections/faq-search.liquid` & `assets/faq-search.js`)
 ---
 
 <a id="institutional-footer"></a>
-### 📜 Institutional Footer & Certificates of Analysis (CoA)
+### 📜 Standalone Certifications & Institutional Footer (Certificates of Analysis - CoA)
 
-BioForma includes an Institutional Footer (`sections/footer.liquid`) engineered for medical transparency, trust badges, and downloadable third-party laboratory Certificates of Analysis (CoA).
+BioForma includes both a standalone **Certificates of Analysis Section** (`sections/certifications.liquid`) and an **Institutional Footer** (`sections/footer.liquid`) engineered for medical transparency, trust badges, and downloadable third-party laboratory Certificates of Analysis (CoA).
+
+#### 🧩 Section Usage & Flexibility
+* **Standalone Section (`sections/certifications.liquid`)**: Can be added as a drag-and-drop section on any page (Homepage, Product Pages, About Us) or added into the **Footer Group** (`footer-group.json`) in the Theme Editor.
+* **Performance-Optimized Lazy Link Hydration**: PDF download buttons utilize `data-pdf-url` and `requestIdleCallback` lazy hydration to prevent unnecessary DNS lookup and TLS preconnect overhead during initial page load, preserving 90+ Lighthouse mobile performance scores.
 
 #### 🧪 How to Upload & Link Custom CoA PDF Documents
 1. **Upload your PDF to Shopify**:
@@ -272,7 +276,7 @@ BioForma includes an Institutional Footer (`sections/footer.liquid`) engineered 
 
 2. **Connect the PDF Link in Theme Customizer**:
    * Open the **Shopify Theme Customizer (Customize)**.
-   * In the left sidebar under **Institutional footer**, click on a **CoA certificate** block (e.g., *CoA NMN Ultra Pure 99.8%*).
+   * In the left sidebar, click on a **CoA certificate** block (e.g., *CoA NMN Ultra Pure 99.8%*).
    * Paste the copied URL into the **Link to PDF document (CoA)** field.
 
 > [!IMPORTANT]
