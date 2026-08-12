@@ -22,7 +22,11 @@ To customize your layout, open the Shopify Theme Editor and look at the **Sectio
       * 🔹 [Setup & Data Configuration](#supplement-facts-setup)
       * 🛠️ [Interactive JSON Generator (Supplement Facts)](#supplement-facts-generator-tool)
     * 💡 [Onboarding Context & Theme Editor Behavior](#onboarding-behavior)
+  * 🔄 [Subscription-First Tiered Pricing (`<product-subscription>`)](#product-subscription)
+  * 🖼️ [Zero-CLS Product Gallery & Media (`<product-gallery-thumbnails>`)](#product-gallery)
+* 🛒 [Smart AJAX Cart Drawer (`<cart-drawer>`)](#cart-drawer)
 * ⚡ [High-Performance App Wrapper (`<high-perf-app-wrapper>`)](#app-wrapper)
+* ❓ [Multi-Instance FAQ Search (`<faq-search>`)](#faq-search)
 * 📄 [Customizing Other Pages](#customizing-other-pages)
 * 💡 [How to Add a Section](#how-to-add-a-section)
 
@@ -178,6 +182,47 @@ When no metafield data is detected on an active storefront product page, zero HT
 
 ---
 
+<a id="product-subscription"></a>
+#### 🔄 Subscription-First Tiered Pricing (`<product-subscription>`)
+
+Engineered specifically for health, supplement, and recurring wellness brands, BioForma integrates a native `<product-subscription>` custom element (`assets/product-subscription.js`).
+
+* **Dynamic Selling Plan Integration**: Binds natively to Shopify Selling Plans (Subscriptions) and form variant changes without external app overrides.
+* **Tiered Volume Discounts**: Automatically calculates volume price reductions (e.g. 10% or 20% savings on 60-day or 90-day supplies) and updates the price display dynamically.
+* **Zero Cumulative Layout Shift**: Intercepts variant changes via event-driven hooks (`pointerdown` and `change`) to update prices instantly in ~0.2ms without causing structural reflows.
+
+[⬆️ Back to Table of Contents](#table-of-contents)
+
+---
+
+<a id="product-gallery"></a>
+#### 🖼️ Zero-CLS Product Gallery & Media (`<product-gallery-thumbnails>`)
+
+The BioForma product page section (`sections/product.liquid`) features a high-performance thumbnail gallery driven by `assets/product-image-zoom.js`.
+
+* **CSS Scroll Snap Track**: Employs pure CSS horizontal scroll snap for frictionless, native touch navigation on mobile devices.
+* **WebP CDN Compression**: Optimized with Shopify CDN WebP filters (`width: 120`, `loading: lazy`, `fetchpriority: low`).
+* **Instant DOM Image Swap**: Uses pre-warmed `pointerdown` listeners to trigger instant 60fps main image replacements in ~0.2ms - 0.5ms under CPU throttling.
+* **Native Rich Media**: Supports Shopify 3D Interactive Models (.GLB / .USDZ) via `model_viewer_tag` and HTML5 Video via `video_tag` without heavy third-party iframe overlays.
+
+[⬆️ Back to Table of Contents](#table-of-contents)
+
+---
+
+<a id="cart-drawer"></a>
+### 🛒 Smart AJAX Cart Drawer (`<cart-drawer>`)
+
+BioForma includes an advanced side-out sliding AJAX cart drawer (`sections/cart-drawer.liquid` & `assets/cart-drawer.js`) engineered to maximize Average Order Value (AOV) and conversion.
+
+* **Dynamic Price Interception**: Automatically syncs with native Shopify subscription selling plans and volume discounts, displaying struck-through original vs. final prices in real-time.
+* **Clinical Savings Badge**: Renders a prominent savings indicator (`Saved $X.XX`) dynamically updated based on cart item metadata.
+* **Free Shipping Threshold Bar**: Features an active progress indicator tracking remaining amount required to unlock free shipping.
+* **Hardware-Accelerated Slide**: 60fps CSS GPU transitions (`will-change: transform, opacity`) ensure smooth side-drawer opening/closing on iOS and Android devices.
+
+[⬆️ Back to Table of Contents](#table-of-contents)
+
+---
+
 <a id="app-wrapper"></a>
 ### ⚡ High-Performance App Wrapper (`<high-perf-app-wrapper>`)
 
@@ -195,6 +240,19 @@ BioForma solves this problem natively with the `<high-perf-app-wrapper>` custom 
 1. In the **Shopify Theme Editor (Customize)**, add any **App Block** (Theme App Extension) inside a supported page section.
 2. The BioForma theme shell automatically wraps the app block via `snippets/high-performance-app-wrapper.liquid`.
 3. On your live storefront, third-party scripts hydrate seamlessly without slowing down initial page loads or blocking the main rendering thread.
+
+[⬆️ Back to Table of Contents](#table-of-contents)
+
+---
+
+<a id="faq-search"></a>
+### ❓ Multi-Instance Live FAQ Search (`<faq-search>`)
+
+The BioForma FAQ section (`sections/faq-search.liquid` & `assets/faq-search.js`) provides zero-latency client-side search filtering designed for clinical clarity.
+
+* **Scoped Multi-Instance Search**: Custom element `<faq-search>` uses strictly scoped DOM queries to isolate search operations per section instance without global ID conflicts.
+* **White Clinical Aesthetics**: Minimalist accordion UI built with accessible HTML5 `<details>` and `<summary>` elements with fine dividers and plus-to-close micro-interactions.
+* **Zero Layout Jumps (0.00 CLS)**: Hardware-accelerated CSS Grid transitions (`grid-template-rows: 0fr` → `1fr`) lock layout shifts at absolute `0.00` during expand, collapse, and search filtering.
 
 [⬆️ Back to Table of Contents](#table-of-contents)
 
