@@ -68,6 +68,11 @@ Renders full molecular composition lists via `sections/product-ingredients.liqui
 ]
 ```
 
+###### 🛠️ Interactive JSON Generator (Ingredients List)
+Fill out the table below to generate valid JSON automatically. Once all fields are completed, click **Copia JSON negli Appunti** and paste it directly into the product metafield in Shopify Admin:
+
+{% include ingredients-generator.html %}
+
 ##### 2. Supplement Facts Table (`bioforma.supplement_facts`)
 Renders an interactive nutritional facts table with scientific detail micro-drawers via `sections/product-supplement-facts.liquid`.
 
@@ -114,6 +119,11 @@ Renders an interactive nutritional facts table with scientific detail micro-draw
   ]
 }
 ```
+
+###### 🛠️ Interactive JSON Generator (Supplement Facts)
+Fill out the dosage header fields and ingredients table below to generate valid JSON automatically. Once all fields are completed, click **Copia JSON negli Appunti** and paste it directly into the product metafield in Shopify Admin:
+
+{% include supplement-facts-generator.html %}
 
 ##### 💡 Onboarding Context & Theme Editor Behavior
 When no metafield data is detected on an active storefront product page, zero HTML markup is rendered to prevent empty structural containers. However, inside the Shopify Theme Editor (`request.design_mode`), an onboarding dashed container placeholder is rendered strictly for merchant setup guidance.

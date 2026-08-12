@@ -1,0 +1,249 @@
+<div class="json-generator-container" id="ingredients-generator">
+  <div class="generator-header">
+    <h4 style="margin: 0 0 8px 0; color: #0d47a1; font-weight: 700;">✨ Generator Interattivo JSON: Ingredients List</h4>
+    <p style="margin: 0 0 16px 0; font-size: 0.9em; color: #424242;">
+      Compila la tabella sottostante per generare automaticamente il payload JSON valido per il metafield <code>bioforma.ingredients_list</code>.
+    </p>
+  </div>
+
+  <table class="generator-table">
+    <thead>
+      <tr>
+        <th style="width: 28%;">Ingrediente (Name)</th>
+        <th style="width: 22%;">Dosaggio (Dosage)</th>
+        <th style="width: 40%;">Funzione Scientifica (Function)</th>
+        <th style="width: 10%; text-align: center;">Azioni</th>
+      </tr>
+    </thead>
+    <tbody id="ingredients-tbody">
+      <!-- Dynamic rows inserted here -->
+    </tbody>
+  </table>
+
+  <div class="generator-actions" style="margin-top: 12px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px;">
+    <button type="button" class="btn-add-row" onclick="addIngredientRow()">+ Aggiungi Ingrediente</button>
+    <div style="display: flex; align-items: center; gap: 10px;">
+      <span id="ingredients-status-msg" style="font-size: 0.85em; color: #d32f2f; font-weight: 600;">Riempi tutti i campi per abilitare la copia</span>
+      <button type="button" id="btn-copy-ingredients" class="btn-copy-json" disabled onclick="copyIngredientsJson()">
+        📋 Copia JSON negli Appunti
+      </button>
+    </div>
+  </div>
+
+  <div class="json-output-preview" style="margin-top: 15px;">
+    <label style="display: block; font-size: 0.8em; font-weight: 600; text-transform: uppercase; color: #616161; margin-bottom: 4px;">Anteprima JSON Risultante:</label>
+    <pre id="ingredients-json-output" class="json-code-block">[]</pre>
+  </div>
+</div>
+
+<style>
+.json-generator-container {
+  background: #f8fafc;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  padding: 18px;
+  margin: 20px 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+.generator-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 8px;
+  background: #ffffff;
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+.generator-table th {
+  background: #0f172a;
+  color: #ffffff;
+  padding: 10px 12px;
+  font-size: 0.85em;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  text-align: left;
+}
+.generator-table td {
+  padding: 8px 10px;
+  border-bottom: 1px solid #e2e8f0;
+  vertical-align: middle;
+}
+.generator-table input, .generator-table textarea {
+  width: 100%;
+  padding: 7px 10px;
+  border: 1px solid #cbd5e1;
+  border-radius: 4px;
+  font-size: 0.9em;
+  box-sizing: border-box;
+  transition: border-color 0.2s;
+}
+.generator-table input:focus, .generator-table textarea:focus {
+  border-color: #2563eb;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.1);
+}
+.btn-action {
+  background: #ef4444;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  width: 28px;
+  height: 28px;
+  cursor: pointer;
+  font-weight: bold;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+}
+.btn-action:hover {
+  background: #dc2626;
+}
+.btn-add-row {
+  background: #059669;
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 5px;
+  font-weight: 600;
+  font-size: 0.85em;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.btn-add-row:hover {
+  background: #047857;
+}
+.btn-copy-json {
+  background: #2563eb;
+  color: white;
+  border: none;
+  padding: 9px 18px;
+  border-radius: 6px;
+  font-weight: 700;
+  font-size: 0.9em;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.btn-copy-json:disabled {
+  background: #94a3b8;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+.btn-copy-json:not(:disabled):hover {
+  background: #1d4ed8;
+  box-shadow: 0 2px 5px rgba(37, 99, 235, 0.3);
+}
+.json-code-block {
+  background: #0f172a;
+  color: #38bdf8;
+  padding: 12px;
+  border-radius: 6px;
+  font-family: monospace;
+  font-size: 0.82em;
+  max-height: 200px;
+  overflow-y: auto;
+  margin: 0;
+  white-space: pre-wrap;
+  word-break: break-all;
+}
+</style>
+
+<script>
+(function() {
+  const initialData = [
+    { name: "Magnesium Bisglycinate Chelate", dosage: "400 mg", function: "Crosses blood-brain barrier to optimize REM and Slow-Wave deep sleep architecture." },
+    { name: "Suntheanine® L-Theanine", dosage: "200 mg", function: "Increases alpha brainwave activity for deep relaxation without sedation." },
+    { name: "Apigenin 98%", dosage: "50 mg", function: "Binds to central benzodiazepine receptors to accelerate sleep latency." }
+  ];
+
+  window.addIngredientRow = function(data = { name: '', dosage: '', function: '' }) {
+    const tbody = document.getElementById('ingredients-tbody');
+    const tr = document.createElement('tr');
+    tr.className = 'ingredient-row';
+    tr.innerHTML = `
+      <td><input type="text" class="inp-name" placeholder="Es. Magnesium Bisglycinate" value="${escapeHtml(data.name)}" oninput="validateIngredientsForm()"></td>
+      <td><input type="text" class="inp-dosage" placeholder="Es. 400 mg" value="${escapeHtml(data.dosage)}" oninput="validateIngredientsForm()"></td>
+      <td><input type="text" class="inp-function" placeholder="Es. Supporta il riposo profondo..." value="${escapeHtml(data.function)}" oninput="validateIngredientsForm()"></td>
+      <td style="text-align: center;">
+        <button type="button" class="btn-action btn-remove-row" onclick="removeIngredientRow(this)" title="Rimuovi Ingrediente">-</button>
+      </td>
+    `;
+    tbody.appendChild(tr);
+    validateIngredientsForm();
+  };
+
+  window.removeIngredientRow = function(btn) {
+    const tbody = document.getElementById('ingredients-tbody');
+    if (tbody.children.length > 1) {
+      btn.closest('tr').remove();
+      validateIngredientsForm();
+    }
+  };
+
+  function escapeHtml(str) {
+    return (str || '').replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+  }
+
+  window.validateIngredientsForm = function() {
+    const tbody = document.getElementById('ingredients-tbody');
+    const rows = tbody.querySelectorAll('.ingredient-row');
+    const removeBtns = tbody.querySelectorAll('.btn-remove-row');
+    
+    // Enable/disable remove buttons based on row count (> 1)
+    removeBtns.forEach(btn => {
+      btn.style.visibility = rows.length > 1 ? 'visible' : 'hidden';
+    });
+
+    let allValid = rows.length > 0;
+    const jsonArray = [];
+
+    rows.forEach(row => {
+      const name = row.querySelector('.inp-name').value.trim();
+      const dosage = row.querySelector('.inp-dosage').value.trim();
+      const func = row.querySelector('.inp-function').value.trim();
+
+      if (!name || !dosage || !func) {
+        allValid = false;
+      }
+      jsonArray.push({ name, dosage, function: func });
+    });
+
+    const copyBtn = document.getElementById('btn-copy-ingredients');
+    const statusMsg = document.getElementById('ingredients-status-msg');
+    const jsonOutput = document.getElementById('ingredients-json-output');
+
+    jsonOutput.textContent = JSON.stringify(jsonArray, null, 2);
+
+    if (allValid) {
+      copyBtn.removeAttribute('disabled');
+      statusMsg.textContent = '✅ Formattazione valida. Pronto per la copia!';
+      statusMsg.style.color = '#059669';
+    } else {
+      copyBtn.setAttribute('disabled', 'true');
+      statusMsg.textContent = '⚠️ Compila tutti i campi della tabella per abilitare la copia';
+      statusMsg.style.color = '#d32f2f';
+    }
+  };
+
+  window.copyIngredientsJson = function() {
+    const copyBtn = document.getElementById('btn-copy-ingredients');
+    const jsonOutput = document.getElementById('ingredients-json-output').textContent;
+
+    navigator.clipboard.writeText(jsonOutput).then(() => {
+      const origText = copyBtn.textContent;
+      copyBtn.textContent = '✅ Copiato negli Appunti!';
+      copyBtn.style.background = '#059669';
+      setTimeout(() => {
+        copyBtn.textContent = origText;
+        copyBtn.style.background = '#2563eb';
+      }, 2000);
+    }).catch(err => {
+      alert('Errore durante la copia: ' + err);
+    });
+  };
+
+  document.addEventListener('DOMContentLoaded', function() {
+    initialData.forEach(item => addIngredientRow(item));
+  });
+})();
+</script>

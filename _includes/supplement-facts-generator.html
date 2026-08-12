@@ -1,0 +1,179 @@
+<div class="json-generator-container" id="supplement-facts-generator">
+  <div class="generator-header">
+    <h4 style="margin: 0 0 8px 0; color: #064e3b; font-weight: 700;">🧪 Generator Interattivo JSON: Supplement Facts Table</h4>
+    <p style="margin: 0 0 16px 0; font-size: 0.9em; color: #334155;">
+      Compila le informazioni di dose giornaliera e la tabella nutrizionale per generare il JSON completo da incollare nel metafield <code>bioforma.supplement_facts</code>.
+    </p>
+  </div>
+
+  <!-- Header Fields -->
+  <div class="supp-header-fields" style="background: #ffffff; padding: 14px; border-radius: 6px; border: 1px solid #cbd5e1; margin-bottom: 16px;">
+    <h5 style="margin: 0 0 10px 0; color: #0f172a; font-size: 0.9em; text-transform: uppercase; letter-spacing: 0.5px;">1. Valori Generali & Intestazione</h5>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px; margin-bottom: 10px;">
+      <div>
+        <label style="display: block; font-size: 0.8em; font-weight: 600; color: #475569; margin-bottom: 4px;">Dose Giornaliera (daily_serving):</label>
+        <input type="text" id="supp-daily-serving" placeholder="Es. 2 Capsules" value="2 Capsules" oninput="validateSupplementFactsForm()">
+      </div>
+      <div>
+        <label style="display: block; font-size: 0.8em; font-weight: 600; color: #475569; margin-bottom: 4px;">Dosi per Confezione (servings_per_container):</label>
+        <input type="text" id="supp-servings-container" placeholder="Es. 30 (60 Capsules)" value="30 (60 Capsules)" oninput="validateSupplementFactsForm()">
+      </div>
+    </div>
+    <div>
+      <label style="display: block; font-size: 0.8em; font-weight: 600; color: #475569; margin-bottom: 4px;">Nota a piè di pagina (footnote):</label>
+      <input type="text" id="supp-footnote" placeholder="Es. * Reference Intake (NRV) not established." value="* Reference Intake (NRV) not established. Third-party laboratory certified ultra-pure formula." oninput="validateSupplementFactsForm()">
+    </div>
+  </div>
+
+  <!-- Ingredients Table -->
+  <div style="margin-bottom: 8px;">
+    <h5 style="margin: 0 0 8px 0; color: #0f172a; font-size: 0.9em; text-transform: uppercase; letter-spacing: 0.5px;">2. Tabella Ingredienti Funzionali</h5>
+  </div>
+  <table class="generator-table">
+    <thead>
+      <tr>
+        <th style="width: 25%;">Functional Ingredient (Name)</th>
+        <th style="width: 18%;">Amount per Serving (Amount)</th>
+        <th style="width: 12%;">% NRV* (Daily Value)</th>
+        <th style="width: 35%;">Science & Benefits Drawer (Benefits)</th>
+        <th style="width: 10%; text-align: center;">Azioni</th>
+      </tr>
+    </thead>
+    <tbody id="supp-tbody">
+      <!-- Dynamic rows inserted here -->
+    </tbody>
+  </table>
+
+  <div class="generator-actions" style="margin-top: 12px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px;">
+    <button type="button" class="btn-add-row" onclick="addSuppRow()">+ Aggiungi Ingrediente Nutrizionale</button>
+    <div style="display: flex; align-items: center; gap: 10px;">
+      <span id="supp-status-msg" style="font-size: 0.85em; color: #d32f2f; font-weight: 600;">Riempi tutti i campi per abilitare la copia</span>
+      <button type="button" id="btn-copy-supp" class="btn-copy-json" disabled onclick="copySuppJson()">
+        📋 Copia JSON negli Appunti
+      </button>
+    </div>
+  </div>
+
+  <div class="json-output-preview" style="margin-top: 15px;">
+    <label style="display: block; font-size: 0.8em; font-weight: 600; text-transform: uppercase; color: #616161; margin-bottom: 4px;">Anteprima JSON Risultante:</label>
+    <pre id="supp-json-output" class="json-code-block">{}</pre>
+  </div>
+</div>
+
+<script>
+(function() {
+  const initialSuppData = [
+    { name: "L-Citrulline Malate 2:1", amount: "3000 mg", daily_value: "*", benefits: "Precursore dell'ossido nitrico per la vasodilatazione e l'ossigenazione muscolare." },
+    { name: "Grape Seed Extract (95% Proanthocyanidins)", amount: "300 mg", daily_value: "*", benefits: "Potente antiossidante per la salute cardiovascolare e il microcircolo." },
+    { name: "Trans-Resveratrol 98%", amount: "150 mg", daily_value: "*", benefits: "Attiva le sirtuine (SIRT1) per la longevità cellulare." },
+    { name: "Vitamin K2 (as MK-7 Menaquinone-7)", amount: "100 mcg", daily_value: "83%", benefits: "Dirige il calcio verso le ossa ed evita la calcificazione arteriosa." }
+  ];
+
+  window.addSuppRow = function(data = { name: '', amount: '', daily_value: '*', benefits: '' }) {
+    const tbody = document.getElementById('supp-tbody');
+    const tr = document.createElement('tr');
+    tr.className = 'supp-row';
+    tr.innerHTML = `
+      <td><input type="text" class="inp-supp-name" placeholder="Es. L-Citrulline Malate" value="${escapeHtml(data.name)}" oninput="validateSupplementFactsForm()"></td>
+      <td><input type="text" class="inp-supp-amount" placeholder="Es. 3000 mg" value="${escapeHtml(data.amount)}" oninput="validateSupplementFactsForm()"></td>
+      <td><input type="text" class="inp-supp-dv" placeholder="Es. * o 83%" value="${escapeHtml(data.daily_value)}" oninput="validateSupplementFactsForm()"></td>
+      <td><input type="text" class="inp-supp-benefits" placeholder="Es. Spiegazione scientifica..." value="${escapeHtml(data.benefits)}" oninput="validateSupplementFactsForm()"></td>
+      <td style="text-align: center;">
+        <button type="button" class="btn-action btn-supp-remove-row" onclick="removeSuppRow(this)" title="Rimuovi Ingrediente">-</button>
+      </td>
+    `;
+    tbody.appendChild(tr);
+    validateSupplementFactsForm();
+  };
+
+  window.removeSuppRow = function(btn) {
+    const tbody = document.getElementById('supp-tbody');
+    if (tbody.children.length > 1) {
+      btn.closest('tr').remove();
+      validateSupplementFactsForm();
+    }
+  };
+
+  function escapeHtml(str) {
+    return (str || '').replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+  }
+
+  window.validateSupplementFactsForm = function() {
+    const dailyServing = document.getElementById('supp-daily-serving').value.trim();
+    const servingsContainer = document.getElementById('supp-servings-container').value.trim();
+    const footnote = document.getElementById('supp-footnote').value.trim();
+
+    const tbody = document.getElementById('supp-tbody');
+    const rows = tbody.querySelectorAll('.supp-row');
+    const removeBtns = tbody.querySelectorAll('.btn-supp-remove-row');
+    
+    removeBtns.forEach(btn => {
+      btn.style.visibility = rows.length > 1 ? 'visible' : 'hidden';
+    });
+
+    let allValid = !!(dailyServing && servingsContainer && footnote && rows.length > 0);
+    const ingredientsArray = [];
+
+    rows.forEach(row => {
+      const name = row.querySelector('.inp-supp-name').value.trim();
+      const amount = row.querySelector('.inp-supp-amount').value.trim();
+      const dv = row.querySelector('.inp-supp-dv').value.trim();
+      const benefits = row.querySelector('.inp-supp-benefits').value.trim();
+
+      if (!name || !amount || !dv || !benefits) {
+        allValid = false;
+      }
+      ingredientsArray.push({
+        name: name,
+        amount: amount,
+        daily_value: dv,
+        benefits: benefits
+      });
+    });
+
+    const fullJsonObject = {
+      daily_serving: dailyServing,
+      servings_per_container: servingsContainer,
+      footnote: footnote,
+      ingredients: ingredientsArray
+    };
+
+    const copyBtn = document.getElementById('btn-copy-supp');
+    const statusMsg = document.getElementById('supp-status-msg');
+    const jsonOutput = document.getElementById('supp-json-output');
+
+    jsonOutput.textContent = JSON.stringify(fullJsonObject, null, 2);
+
+    if (allValid) {
+      copyBtn.removeAttribute('disabled');
+      statusMsg.textContent = '✅ Formattazione valida. Pronto per la copia!';
+      statusMsg.style.color = '#059669';
+    } else {
+      copyBtn.setAttribute('disabled', 'true');
+      statusMsg.textContent = '⚠️ Compila l\'intestazione e tutti i campi della tabella';
+      statusMsg.style.color = '#d32f2f';
+    }
+  };
+
+  window.copySuppJson = function() {
+    const copyBtn = document.getElementById('btn-copy-supp');
+    const jsonOutput = document.getElementById('supp-json-output').textContent;
+
+    navigator.clipboard.writeText(jsonOutput).then(() => {
+      const origText = copyBtn.textContent;
+      copyBtn.textContent = '✅ Copiato negli Appunti!';
+      copyBtn.style.background = '#059669';
+      setTimeout(() => {
+        copyBtn.textContent = origText;
+        copyBtn.style.background = '#2563eb';
+      }, 2000);
+    }).catch(err => {
+      alert('Errore durante la copia: ' + err);
+    });
+  };
+
+  document.addEventListener('DOMContentLoaded', function() {
+    initialSuppData.forEach(item => addSuppRow(item));
+  });
+})();
+</script>
