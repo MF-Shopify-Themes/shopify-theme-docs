@@ -8,7 +8,7 @@ title: BioForma Theme Documentation
 Welcome to the documentation hub for **BioForma**, a Shopify theme tailored for Nootropics, Supplements, Health, and Beauty stores. 
 
 > [!IMPORTANT]
-> ⚡ **Maintain Maximum Storefront Performance**: BioForma includes a native **[High-Performance App Wrapper](./sections.md#app-wrapper)** to prevent third-party Shopify apps from degrading your page speed. Always wrap heavy app blocks to preserve 90+ Lighthouse mobile performance scores and instant page loads.
+> ⚡ **Native-First Zero-App Advantage**: BioForma integrates native *Supplement Facts* drawers, ISO/CoA certificates, clinical comparison tables, and AJAX sliding carts directly into Liquid & Web Components. This eliminates the need for 5-10 third-party app subscriptions ($50–$100/month saved) and prevents external app scripts from degrading storefront Lighthouse mobile scores.
 
 ### 📖 Documentation Index
 
