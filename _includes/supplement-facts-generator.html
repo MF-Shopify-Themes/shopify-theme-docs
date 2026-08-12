@@ -1,45 +1,45 @@
 <div class="json-generator-container" id="supplement-facts-generator">
   <div class="generator-header">
-    <h4 style="margin: 0 0 8px 0; color: #064e3b; font-weight: 700;">🧪 Generator Interattivo JSON: Supplement Facts Table</h4>
+    <h4 style="margin: 0 0 8px 0; color: #064e3b; font-weight: 700;">🧪 Interactive JSON Generator: Supplement Facts Table</h4>
     <p style="margin: 0 0 16px 0; font-size: 0.9em; color: #334155;">
-      Compila le informazioni di dose giornaliera e la tabella nutrizionale per generare il JSON completo da incollare nel metafield <code>bioforma.supplement_facts</code>. <strong>Puoi trascinare le righe usando l'icona (⋮⋮) per riordinare gli ingredienti.</strong>
+      Fill out the dosage header values and nutritional table to generate the complete JSON payload for the <code>bioforma.supplement_facts</code> metafield. <strong>You can drag rows using the handle (⋮⋮) to reorder ingredients.</strong>
     </p>
   </div>
 
   <!-- Header Fields Bootstrap Style -->
   <div class="supp-header-fields" style="background: #ffffff; padding: 18px; border-radius: 8px; border: 1px solid #cbd5e1; margin-bottom: 20px; box-shadow: 0 1px 3px rgba(0,0,0,0.04); width: 100%; box-sizing: border-box;">
-    <h5 style="margin: 0 0 14px 0; color: #0f172a; font-size: 0.85em; text-transform: uppercase; letter-spacing: 0.5px; font-weight: 700;">1. Valori Generali & Intestazione</h5>
+    <h5 style="margin: 0 0 14px 0; color: #0f172a; font-size: 0.85em; text-transform: uppercase; letter-spacing: 0.5px; font-weight: 700;">1. General Values & Serving Header</h5>
     
     <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 14px; width: 100%; box-sizing: border-box;">
       <div class="bs-form-group" style="width: 100%; box-sizing: border-box;">
-        <label for="supp-daily-serving" class="bs-form-label">Dose Giornaliera (daily_serving)</label>
-        <input type="text" id="supp-daily-serving" class="bs-form-control" placeholder="Es. 2 Capsules" value="2 Capsules" oninput="validateSupplementFactsForm()">
+        <label for="supp-daily-serving" class="bs-form-label">Daily Serving (daily_serving)</label>
+        <input type="text" id="supp-daily-serving" class="bs-form-control" placeholder="e.g. 2 Capsules" value="2 Capsules" oninput="validateSupplementFactsForm()">
       </div>
       <div class="bs-form-group" style="width: 100%; box-sizing: border-box;">
-        <label for="supp-servings-container" class="bs-form-label">Dosi per Confezione (servings_per_container)</label>
-        <input type="text" id="supp-servings-container" class="bs-form-control" placeholder="Es. 30 (60 Capsules)" value="30 (60 Capsules)" oninput="validateSupplementFactsForm()">
+        <label for="supp-servings-container" class="bs-form-label">Servings per Container (servings_per_container)</label>
+        <input type="text" id="supp-servings-container" class="bs-form-control" placeholder="e.g. 30 (60 Capsules)" value="30 (60 Capsules)" oninput="validateSupplementFactsForm()">
       </div>
     </div>
     
     <div class="bs-form-group" style="width: 100%; box-sizing: border-box;">
-      <label for="supp-footnote" class="bs-form-label">Nota a piè di pagina (footnote)</label>
-      <input type="text" id="supp-footnote" class="bs-form-control" placeholder="Es. * Reference Intake (NRV) not established." value="* Reference Intake (NRV) not established. Third-party laboratory certified ultra-pure formula." oninput="validateSupplementFactsForm()">
+      <label for="supp-footnote" class="bs-form-label">Footnote Note (footnote)</label>
+      <input type="text" id="supp-footnote" class="bs-form-control" placeholder="e.g. * Reference Intake (NRV) not established." value="* Reference Intake (NRV) not established. Third-party laboratory certified ultra-pure formula." oninput="validateSupplementFactsForm()">
     </div>
   </div>
 
   <!-- Ingredients Table -->
   <div style="margin-bottom: 8px;">
-    <h5 style="margin: 0 0 8px 0; color: #0f172a; font-size: 0.85em; text-transform: uppercase; letter-spacing: 0.5px; font-weight: 700;">2. Tabella Ingredienti Nutrizionali</h5>
+    <h5 style="margin: 0 0 8px 0; color: #0f172a; font-size: 0.85em; text-transform: uppercase; letter-spacing: 0.5px; font-weight: 700;">2. Functional Ingredients Table</h5>
   </div>
   <table class="generator-table">
     <thead>
       <tr>
         <th style="width: 5%; text-align: center;"></th>
-        <th style="width: 24%;">Functional Ingredient (Name)</th>
-        <th style="width: 17%;">Amount per Serving (Amount)</th>
-        <th style="width: 12%;">% NRV* (Daily Value)</th>
-        <th style="width: 32%;">Science & Benefits Drawer (Benefits)</th>
-        <th style="width: 10%; text-align: center;">Azioni</th>
+        <th style="width: 24%;">Functional Ingredient (name)</th>
+        <th style="width: 17%;">Amount per Serving (amount)</th>
+        <th style="width: 12%;">% NRV* (daily_value)</th>
+        <th style="width: 32%;">Science & Benefits Drawer (benefits)</th>
+        <th style="width: 10%; text-align: center;">Actions</th>
       </tr>
     </thead>
     <tbody id="supp-tbody">
@@ -48,17 +48,17 @@
   </table>
 
   <div class="generator-actions" style="margin-top: 12px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px;">
-    <button type="button" class="btn-add-row" onclick="addSuppRow()">+ Aggiungi Ingrediente Nutrizionale</button>
+    <button type="button" class="btn-add-row" onclick="addSuppRow()">+ Add Nutritional Ingredient</button>
     <div style="display: flex; align-items: center; gap: 10px;">
-      <span id="supp-status-msg" style="font-size: 0.85em; color: #d32f2f; font-weight: 600;">Riempi tutti i campi per abilitare la copia</span>
+      <span id="supp-status-msg" style="font-size: 0.85em; color: #d32f2f; font-weight: 600;">Fill out header and all fields to enable copy</span>
       <button type="button" id="btn-copy-supp" class="btn-copy-json" disabled onclick="copySuppJson()">
-        📋 Copia JSON negli Appunti
+        📋 Copy JSON to Clipboard
       </button>
     </div>
   </div>
 
   <div class="json-output-preview" style="margin-top: 15px;">
-    <label style="display: block; font-size: 0.8em; font-weight: 600; text-transform: uppercase; color: #616161; margin-bottom: 4px;">Anteprima JSON Risultante:</label>
+    <label style="display: block; font-size: 0.8em; font-weight: 600; text-transform: uppercase; color: #616161; margin-bottom: 4px;">Resulting JSON Preview:</label>
     <pre id="supp-json-output" class="json-code-block">{}</pre>
   </div>
 </div>
@@ -103,10 +103,10 @@
   let draggedSuppRow = null;
 
   const initialSuppData = [
-    { name: "L-Citrulline Malate 2:1", amount: "3000 mg", daily_value: "*", benefits: "Precursore dell'ossido nitrico per la vasodilatazione e l'ossigenazione muscolare." },
-    { name: "Grape Seed Extract (95% Proanthocyanidins)", amount: "300 mg", daily_value: "*", benefits: "Potente antiossidante per la salute cardiovascolare e il microcircolo." },
-    { name: "Trans-Resveratrol 98%", amount: "150 mg", daily_value: "*", benefits: "Attiva le sirtuine (SIRT1) per la longevità cellulare." },
-    { name: "Vitamin K2 (as MK-7 Menaquinone-7)", amount: "100 mcg", daily_value: "83%", benefits: "Dirige il calcio verso le ossa ed evita la calcificazione arteriosa." }
+    { name: "L-Citrulline Malate 2:1", amount: "3000 mg", daily_value: "*", benefits: "Nitric oxide precursor for vasodilation and muscle oxygenation." },
+    { name: "Grape Seed Extract (95% Proanthocyanidins)", amount: "300 mg", daily_value: "*", benefits: "Potent antioxidant for cardiovascular and microcirculation support." },
+    { name: "Trans-Resveratrol 98%", amount: "150 mg", daily_value: "*", benefits: "Activates sirtuins (SIRT1) for cellular longevity." },
+    { name: "Vitamin K2 (as MK-7 Menaquinone-7)", amount: "100 mcg", daily_value: "83%", benefits: "Directs calcium to bones while preventing arterial calcification." }
   ];
 
   window.addSuppRow = function(data = { name: '', amount: '', daily_value: '*', benefits: '' }) {
@@ -115,13 +115,13 @@
     tr.className = 'supp-row ingredient-row';
     tr.setAttribute('draggable', 'true');
     tr.innerHTML = `
-      <td class="drag-handle" title="Trascina per riordinare">⋮⋮</td>
-      <td><input type="text" class="inp-supp-name" placeholder="Es. L-Citrulline Malate" value="${escapeHtml(data.name)}" oninput="validateSupplementFactsForm()"></td>
-      <td><input type="text" class="inp-supp-amount" placeholder="Es. 3000 mg" value="${escapeHtml(data.amount)}" oninput="validateSupplementFactsForm()"></td>
-      <td><input type="text" class="inp-supp-dv" placeholder="Es. * o 83%" value="${escapeHtml(data.daily_value)}" oninput="validateSupplementFactsForm()"></td>
-      <td><input type="text" class="inp-supp-benefits" placeholder="Es. Spiegazione scientifica..." value="${escapeHtml(data.benefits)}" oninput="validateSupplementFactsForm()"></td>
+      <td class="drag-handle" title="Drag to reorder">⋮⋮</td>
+      <td><input type="text" class="inp-supp-name" placeholder="e.g. L-Citrulline Malate" value="${escapeHtml(data.name)}" oninput="validateSupplementFactsForm()"></td>
+      <td><input type="text" class="inp-supp-amount" placeholder="e.g. 3000 mg" value="${escapeHtml(data.amount)}" oninput="validateSupplementFactsForm()"></td>
+      <td><input type="text" class="inp-supp-dv" placeholder="e.g. * or 83%" value="${escapeHtml(data.daily_value)}" oninput="validateSupplementFactsForm()"></td>
+      <td><input type="text" class="inp-supp-benefits" placeholder="e.g. Scientific mechanism..." value="${escapeHtml(data.benefits)}" oninput="validateSupplementFactsForm()"></td>
       <td style="text-align: center;">
-        <button type="button" class="btn-action btn-supp-remove-row" onclick="removeSuppRow(this)" title="Rimuovi Ingrediente">-</button>
+        <button type="button" class="btn-action btn-supp-remove-row" onclick="removeSuppRow(this)" title="Remove Ingredient">-</button>
       </td>
     `;
 
@@ -216,11 +216,11 @@
 
     if (allValid) {
       copyBtn.removeAttribute('disabled');
-      statusMsg.textContent = '✅ Formattazione valida. Pronto per la copia!';
+      statusMsg.textContent = '✅ Valid format. Ready to copy!';
       statusMsg.style.color = '#059669';
     } else {
       copyBtn.setAttribute('disabled', 'true');
-      statusMsg.textContent = '⚠️ Compila l\'intestazione e tutti i campi della tabella';
+      statusMsg.textContent = '⚠️ Fill out header and all table fields to enable copy';
       statusMsg.style.color = '#d32f2f';
     }
   };
@@ -231,14 +231,14 @@
 
     navigator.clipboard.writeText(jsonOutput).then(() => {
       const origText = copyBtn.textContent;
-      copyBtn.textContent = '✅ Copiato negli Appunti!';
+      copyBtn.textContent = '✅ Copied to Clipboard!';
       copyBtn.style.background = '#059669';
       setTimeout(() => {
         copyBtn.textContent = origText;
         copyBtn.style.background = '#2563eb';
       }, 2000);
     }).catch(err => {
-      alert('Errore durante la copia: ' + err);
+      alert('Error copying to clipboard: ' + err);
     });
   };
 

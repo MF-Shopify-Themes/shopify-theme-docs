@@ -1,8 +1,8 @@
 <div class="json-generator-container" id="ingredients-generator">
   <div class="generator-header">
-    <h4 style="margin: 0 0 8px 0; color: #0d47a1; font-weight: 700;">✨ Generator Interattivo JSON: Ingredients List</h4>
+    <h4 style="margin: 0 0 8px 0; color: #0d47a1; font-weight: 700;">✨ Interactive JSON Generator: Ingredients List</h4>
     <p style="margin: 0 0 16px 0; font-size: 0.9em; color: #424242;">
-      Compila la tabella sottostante per generare automaticamente il payload JSON valido per il metafield <code>bioforma.ingredients_list</code>. <strong>Puoi trascinare le righe usando l'icona (⋮⋮) per riordinare gli ingredienti.</strong>
+      Fill out the table below to automatically generate a valid JSON payload for the <code>bioforma.ingredients_list</code> metafield. <strong>You can drag rows using the handle (⋮⋮) to reorder ingredients.</strong>
     </p>
   </div>
 
@@ -10,10 +10,10 @@
     <thead>
       <tr>
         <th style="width: 5%; text-align: center;"></th>
-        <th style="width: 27%;">Ingrediente (Name)</th>
-        <th style="width: 20%;">Dosaggio (Dosage)</th>
-        <th style="width: 38%;">Funzione Scientifica (Function)</th>
-        <th style="width: 10%; text-align: center;">Azioni</th>
+        <th style="width: 27%;">Ingredient Name (name)</th>
+        <th style="width: 20%;">Dosage (dosage)</th>
+        <th style="width: 38%;">Scientific Function (function)</th>
+        <th style="width: 10%; text-align: center;">Actions</th>
       </tr>
     </thead>
     <tbody id="ingredients-tbody">
@@ -22,17 +22,17 @@
   </table>
 
   <div class="generator-actions" style="margin-top: 12px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px;">
-    <button type="button" class="btn-add-row" onclick="addIngredientRow()">+ Aggiungi Ingrediente</button>
+    <button type="button" class="btn-add-row" onclick="addIngredientRow()">+ Add Ingredient</button>
     <div style="display: flex; align-items: center; gap: 10px;">
-      <span id="ingredients-status-msg" style="font-size: 0.85em; color: #d32f2f; font-weight: 600;">Riempi tutti i campi per abilitare la copia</span>
+      <span id="ingredients-status-msg" style="font-size: 0.85em; color: #d32f2f; font-weight: 600;">Fill out all fields to enable copy</span>
       <button type="button" id="btn-copy-ingredients" class="btn-copy-json" disabled onclick="copyIngredientsJson()">
-        📋 Copia JSON negli Appunti
+        📋 Copy JSON to Clipboard
       </button>
     </div>
   </div>
 
   <div class="json-output-preview" style="margin-top: 15px;">
-    <label style="display: block; font-size: 0.8em; font-weight: 600; text-transform: uppercase; color: #616161; margin-bottom: 4px;">Anteprima JSON Risultante:</label>
+    <label style="display: block; font-size: 0.8em; font-weight: 600; text-transform: uppercase; color: #616161; margin-bottom: 4px;">Resulting JSON Preview:</label>
     <pre id="ingredients-json-output" class="json-code-block">[]</pre>
   </div>
 </div>
@@ -182,12 +182,12 @@
     tr.className = 'ingredient-row';
     tr.setAttribute('draggable', 'true');
     tr.innerHTML = `
-      <td class="drag-handle" title="Trascina per riordinare">⋮⋮</td>
-      <td><input type="text" class="inp-name" placeholder="Es. Magnesium Bisglycinate" value="${escapeHtml(data.name)}" oninput="validateIngredientsForm()"></td>
-      <td><input type="text" class="inp-dosage" placeholder="Es. 400 mg" value="${escapeHtml(data.dosage)}" oninput="validateIngredientsForm()"></td>
-      <td><input type="text" class="inp-function" placeholder="Es. Supporta il riposo profondo..." value="${escapeHtml(data.function)}" oninput="validateIngredientsForm()"></td>
+      <td class="drag-handle" title="Drag to reorder">⋮⋮</td>
+      <td><input type="text" class="inp-name" placeholder="e.g. Magnesium Bisglycinate" value="${escapeHtml(data.name)}" oninput="validateIngredientsForm()"></td>
+      <td><input type="text" class="inp-dosage" placeholder="e.g. 400 mg" value="${escapeHtml(data.dosage)}" oninput="validateIngredientsForm()"></td>
+      <td><input type="text" class="inp-function" placeholder="e.g. Supports deep sleep architecture..." value="${escapeHtml(data.function)}" oninput="validateIngredientsForm()"></td>
       <td style="text-align: center;">
-        <button type="button" class="btn-action btn-remove-row" onclick="removeIngredientRow(this)" title="Rimuovi Ingrediente">-</button>
+        <button type="button" class="btn-action btn-remove-row" onclick="removeIngredientRow(this)" title="Remove Ingredient">-</button>
       </td>
     `;
 
@@ -265,11 +265,11 @@
 
     if (allValid) {
       copyBtn.removeAttribute('disabled');
-      statusMsg.textContent = '✅ Formattazione valida. Pronto per la copia!';
+      statusMsg.textContent = '✅ Valid format. Ready to copy!';
       statusMsg.style.color = '#059669';
     } else {
       copyBtn.setAttribute('disabled', 'true');
-      statusMsg.textContent = '⚠️ Compila tutti i campi della tabella per abilitare la copia';
+      statusMsg.textContent = '⚠️ Fill out all table fields to enable copy';
       statusMsg.style.color = '#d32f2f';
     }
   };
@@ -280,14 +280,14 @@
 
     navigator.clipboard.writeText(jsonOutput).then(() => {
       const origText = copyBtn.textContent;
-      copyBtn.textContent = '✅ Copiato negli Appunti!';
+      copyBtn.textContent = '✅ Copied to Clipboard!';
       copyBtn.style.background = '#059669';
       setTimeout(() => {
         copyBtn.textContent = origText;
         copyBtn.style.background = '#2563eb';
       }, 2000);
     }).catch(err => {
-      alert('Errore durante la copia: ' + err);
+      alert('Error copying to clipboard: ' + err);
     });
   };
 
