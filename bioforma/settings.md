@@ -9,6 +9,14 @@ Configure your store's brand colors. We recommend choosing clean, wellness-focus
 * **Primary & Accent:** Used for main buttons, links, and highlighted compliance or ingredient badges.
 * **Backgrounds:** Set clean contrasts for your product grids and nutritional tables.
 
+### 🎨 Theme Style Presets
+
+BioForma includes 3 official pre-configured style presets ready for the Shopify Theme Store, selectable directly from the Theme Editor:
+
+* **Clinical (Default)**: Deep emerald green (`#004B36`) with crisp white surfaces (`#FFFFFF`), ideal for medical nutraceuticals and multi-product catalogs.
+* **BioHacker**: Dark mode high-contrast palette with neon emerald (`#10B981`) on slate dark (`#0F172A`), targeted at performance and nootropics brands.
+* **NutraPure**: Organic deep green (`#2E5A44`) on warm beige (`#FAFAF7`), designed for clean-label supplements and single-product landing stores.
+
 ### 🔤 2. Typography
 
 Choose the fonts for your headings and body text: 
