@@ -31,7 +31,7 @@ Input your official brand links (Instagram, TikTok, Facebook, etc.). Icons will 
 
 BioForma features native, ready-to-use multi-language support built directly into the theme via standard Shopify locale translation files (`locales/`).
 
-The theme comes pre-translated out of the box in 7 languages:
+The theme comes pre-translated out of the box in 10 languages:
 * 🇬🇧 **English** (`en` - Default)
 * 🇩🇪 **German** (`de`)
 * 🇪🇸 **Spanish** (`es`)
@@ -39,6 +39,9 @@ The theme comes pre-translated out of the box in 7 languages:
 * 🇮🇹 **Italian** (`it`)
 * 🇵🇹 **Portuguese** (`pt`)
 * 🇷🇺 **Russian** (`ru`)
+* 🇯🇵 **Japanese** (`ja`)
+* 🇳🇱 **Dutch** (`nl`)
+* 🇨🇳 **Chinese Simplified** (`zh-CN`)
 
 To enable multi-language browsing for your customers, configure your target languages in **Shopify Admin > Settings > Languages** (or **Shopify Markets**) and enable the native Language Selector in your Header or Footer section settings.
 
