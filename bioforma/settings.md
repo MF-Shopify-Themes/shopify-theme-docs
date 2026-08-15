@@ -15,7 +15,7 @@ BioForma includes 3 official pre-configured style presets ready for the Shopify 
 
 * **Clinical (Default)**: Deep emerald green (`#004B36`) with crisp white surfaces (`#FFFFFF`) and mint highlight (`#00E699`), ideal for medical nutraceuticals and multi-product catalogs.
 * **BioHacker**: Dark mode high-contrast palette with cyan accent (`#00E5FF`), neon green highlight (`#39FF14`) on dark slate (`#161D2C`), targeted at performance and nootropics brands.
-* **NutraPure**: Organic sage green (`#3D6352`) with golden highlight (`#C5A880`) on warm natural beige (`#FAFAF7`), designed for clean-label supplements and single-product landing stores.
+* **NutraPure**: Warm Sand & Luxury Gold luxury palette with deep taupe (`#2E2A25`), satin warm gold (`#C5A059`), soft sand silk (`#F4EFEA`), and light cream canvas (`#FBF9F6`), designed for clean-label supplements, organic formulations, and luxury wellness stores.
 
 ### 🔤 2. Typography
 

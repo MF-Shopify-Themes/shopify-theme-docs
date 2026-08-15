@@ -272,6 +272,7 @@ BioForma includes both a standalone **Certificates of Analysis Section** (`secti
 
 #### 🧩 Section Usage & Flexibility
 * **Standalone Section (`sections/certifications.liquid`)**: Can be added as a drag-and-drop section on any page (Homepage, Product Pages, About Us) or added into the **Footer Group** (`footer-group.json`) in the Theme Editor.
+co* **Variant-Adaptive Luxury Styling**: In the **NutraPure** style preset, the section automatically adopts an inverted visual hierarchy with a soft sand container background (`#F4EFEA`) and clean white certificate strips (`#FFFFFF`) to ensure optimal contrast and readability.
 * **Performance-Optimized Lazy Link Hydration**: PDF download buttons utilize `data-pdf-url` and `requestIdleCallback` lazy hydration to prevent unnecessary DNS lookup and TLS preconnect overhead during initial page load, preserving 90+ Lighthouse mobile performance scores.
 
 #### 🧪 How to Upload & Link Custom CoA PDF Documents
