@@ -23,7 +23,7 @@ To customize your layout, open the Shopify Theme Editor and look at the **Sectio
       * 🛠️ [Interactive JSON Generator (Supplement Facts)](#supplement-facts-generator-tool)
     * 💡 [Onboarding Context & Theme Editor Behavior](#onboarding-behavior)
   * 🔄 [Subscription-First Tiered Pricing (`<product-subscription>`)](#product-subscription)
-  * 🖼️ [Zero-CLS Product Gallery & Media (`<product-gallery-thumbnails>`)](#product-gallery)
+  * 🖼️ [High-Performance Product Gallery & Ergonomic Zoom (`<product-image-zoom>`)](#product-gallery)
 * 🛒 [Smart AJAX Cart Drawer (`<cart-drawer>`)](#cart-drawer)
 * ⚡ [High-Performance App Wrapper (`<high-perf-app-wrapper>`)](#app-wrapper)
 * ❓ [Multi-Instance FAQ Search (`<faq-search>`)](#faq-search)
@@ -197,14 +197,20 @@ Engineered specifically for health, supplement, and recurring wellness brands, B
 ---
 
 <a id="product-gallery"></a>
-#### 🖼️ Zero-CLS Product Gallery & Media (`<product-gallery-thumbnails>`)
+#### 🖼️ High-Performance Product Gallery & Ergonomic Zoom (`<product-image-zoom>`)
 
-The BioForma product page section (`sections/product.liquid`) features a high-performance thumbnail gallery driven by `assets/product-image-zoom.js`.
+The BioForma product page section (`sections/product.liquid`) features an enterprise-grade imagery system and an immersive lightbox zoom engine driven by `assets/product-image-zoom.js`.
 
-* **CSS Scroll Snap Track**: Employs pure CSS horizontal scroll snap for frictionless, native touch navigation on mobile devices.
-* **WebP CDN Compression**: Optimized with Shopify CDN WebP filters (`width: 120`, `loading: lazy`, `fetchpriority: low`).
-* **Instant DOM Image Swap**: Uses pre-warmed `pointerdown` listeners to trigger instant 60fps main image replacements in ~0.2ms - 0.5ms under CPU throttling.
-* **Native Rich Media**: Supports Shopify 3D Interactive Models (.GLB / .USDZ) via `model_viewer_tag` and HTML5 Video via `video_tag` without heavy third-party iframe overlays.
+* **Ultra-Fast LCP Preload Engine**: Automatically injects high-priority `<link rel="preload">` hooks in the document `<head>` for the featured product image, ensuring lightning-fast initial load times (<2.0s LCP) on cellular mobile networks.
+* **Boutique Full-Screen Lightbox**: Tapping or clicking the product image opens a cinema-grade modal framed in a sleek, responsive rounded square viewport (`aspect-ratio: 1/1; overflow: hidden`) that adapts seamlessly across phone, tablet, and desktop viewports.
+* **Ergonomic Cross-Platform Gestures**:
+  * **Multi-Touch Pinch-to-Zoom**: Fluid, hardware-accelerated two-finger pinch scaling with automatic focal center detection.
+  * **Continuous Mouse Wheel Zoom**: Smooth desktop wheel zoom clamped strictly to the image's maximum 2000px native resolution.
+  * **Point-Centered Double Click/Tap**: Instantly magnifies the image to 100% resolution centered on the exact clicked spot; double-clicking again smoothly restores the original scale.
+  * **Bounded Drag & Pan**: Drag the enlarged image in any direction with automatic boundary constraints that prevent blank borders.
+  * **Localized Interaction Badge**: Features an accessible, high-contrast instruction pill badge translated across all 10 theme locales.
+* **Zero-Waste Intent Pre-Warming**: Pre-loads full-resolution 2000px assets only when customer hover or touch intent is detected, protecting mobile data plans and keeping Lighthouse performance scores high.
+* **CSS Scroll Snap Thumbnails**: Ultra-smooth horizontal thumbnail track with event delegation, instant DOM image swapping, and native support for interactive 3D Models and HTML5 Video.
 
 [⬆️ Back to Table of Contents](#table-of-contents)
 
