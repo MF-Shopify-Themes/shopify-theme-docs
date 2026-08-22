@@ -17,8 +17,8 @@ BioForma delivers near-instant page loads for actual shoppers on live demo store
 | Theme Preset / Store | Mobile Performance | Core Web Vitals | Real Shopper Impact |
 | :--- | :---: | :---: | :--- |
 | **Clinical Preset** | **99 / 100** | FCP: `0.9s` • LCP: `2.1s` • CLS: `0.000` | Sub-second initial paint, zero cart abandonment |
-| **BioHacker Preset** | **99 / 100** | FCP: `0.9s` • LCP: `2.1s` • CLS: `0.000` | High-impact dark mode with instant interactions |
-| **NutraPure Preset** | **95–97 / 100** | FCP: `1.7s` • LCP: `2.1s` • CLS: `0.000` | Zero layout shift on dense ingredient matrices |
+| **BioHacker Preset** | **98 / 100** | FCP: `1.1s` • LCP: `1.9s` • CLS: `0.000` | High-impact dark mode with instant interactions |
+| **NutraPure Preset** | **95–99 / 100** | FCP: `1.3s` • LCP: `2.3s` • CLS: `0.000` | Zero layout shift on dense ingredient matrices |
 
 > [!NOTE]
 > **Continuous Technical Compliance**:
