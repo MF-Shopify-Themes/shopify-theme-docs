@@ -202,7 +202,11 @@ Engineered specifically for health, supplement, and recurring wellness brands, B
 The BioForma product page section (`sections/product.liquid`) features an enterprise-grade imagery system and an immersive lightbox zoom engine driven by `assets/product-image-zoom.js`.
 
 * **Ultra-Fast LCP Preload Engine**: Automatically injects high-priority `<link rel="preload">` hooks in the document `<head>` for the featured product image, ensuring lightning-fast initial load times (<2.0s LCP) on cellular mobile networks.
-* **Boutique Full-Screen Lightbox**: Tapping or clicking the product image opens a cinema-grade modal framed in a sleek, responsive rounded square viewport (`aspect-ratio: 1/1; overflow: hidden`) that adapts seamlessly across phone, tablet, and desktop viewports.
+* **Dynamic Adaptive Aspect-Ratio Viewport**: Modal content bounds adapt smoothly to the natural proportions of the media (`portrait`, `landscape`, or `square`), expanding up to `92vw` × `92vh` to maximize visible surface area without black bars or letterboxing.
+* **Comprehensive Multi-Platform Navigation**:
+  * **Desktop Keyboard & Floating Buttons**: Navigate through gallery photos sequentially using keyboard arrow keys (`←` / `→`) or floating obsidian-glass prev/next buttons with hover elevation (hidden on mobile).
+  * **Mobile Horizontal Swipe Detection**: Seamless horizontal swipe gestures switch between product media when in normal scale (`scale <= 1`), while preserving single-finger pan when magnified.
+  * **Strict Zoom Reset & Gallery Sync**: Navigating between media automatically resets zoom coordinates to 1.0, updates the active thumbnail button state with smooth centering scroll, and preheats adjacent full-resolution images in the background.
 * **Ergonomic Cross-Platform Gestures**:
   * **Multi-Touch Pinch-to-Zoom**: Fluid, hardware-accelerated two-finger pinch scaling with automatic focal center detection.
   * **Continuous Mouse Wheel Zoom**: Smooth desktop wheel zoom clamped strictly to the image's maximum 2000px native resolution.
