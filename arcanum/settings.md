@@ -15,6 +15,7 @@ Arcanum includes 4 fully-realized style presets designed for different metaphysi
 
 * **Dark (Alchimista — Default)**:
   * *Palette*: Deep Obsidian (`#0A0A0B`), Platinum White (`#F5F5F7`), Soft Silver (`#EDEDED`).
+  * *Atmospheric Micro-Animations*: Amazing moving mist and smoke background animation (`.alchemical-smoke-canvas`) powered by native procedural SVG turbulence, and an amazing moving mist and glow animation drifting along collection product card contours at 60 FPS without layout shifts.
   * *Typography*: Cormorant Garamond headings and Lato/EB Garamond body font.
   * *Dividers*: Minimalist transparent-to-white gradient lines.
   * *Best for*: Grimoires, occult bookshops, traditional alchemy, tarot publishers.

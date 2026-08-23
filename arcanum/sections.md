@@ -25,6 +25,7 @@ Arcanum leverages Shopify's Online Store 2.0 architecture, empowering merchants 
 * 🌙 [Real-Time Moon Phase & Ephemeris Bar (`<moon-phase-widget>`)](#moon-phase-bar)
 * 🛒 [Slide-Out Altar Cart Drawer (`<cart-drawer>`)](#altar-cart-drawer)
 * ᛟ [Accessible Runic Text Rendering (`render-runic-text`)](#runic-rendering)
+* 🌫️ [Atmospheric Micro-Animations & Moving Mist Canvas](#atmospheric-animations)
 
 ---
 
@@ -157,5 +158,23 @@ Every title and heading across the theme is centrally routed through the [`rende
 * When `settings.style_preset == 'runic'`, automatically converts specified latin characters (O, A, T, F, U) into elder futhark runic glyphs (`ᛟ`, `ᚨ`, `ᛏ`, `ᛠ`, `ᚢ`) with hand-carved alternating CSS offsets.
 * Encapsulated inside `aria-label` with `aria-hidden="true"` on rune spans to preserve **100% Google SEO indexing and screen-reader accessibility**.
 * Other presets (*Dark, Vampire, Celestial*) render pristine unaltered typography.
+
+[⬆️ Back to Table of Contents](#table-of-contents)
+
+---
+
+<a id="atmospheric-animations"></a>
+### 🌫️ Atmospheric Micro-Animations & Moving Mist Canvas
+
+Arcanum introduces ambient, immersive micro-animations designed to captivate spiritual buyers while maintaining high-efficiency Lighthouse scores:
+
+* **Amazing Moving Mist Background Animation (`.alchemical-smoke-canvas`)**:
+  * Renders a full-viewport procedural volumetric incense mist in the Dark preset.
+  * Driven by a native SVG `feTurbulence` filter with continuous SMIL parameter animation (`baseFrequency` morphing cycle), ensuring an uninterrupted living smoke effect across the whole page with zero raster seams and 0 KB network payload.
+  * Automatically respects visitor accessibility settings via `@media (prefers-reduced-motion: reduce)`.
+
+* **Moving Glow & Mystic Smoke Edge Card Animations (`.product-card`)**:
+  * Collection product cards in the Dark preset are encircled by an **amazing mist and glow animation moving** along the top and side perimeters at 60 FPS.
+  * Combines GPU-composited chromatic gradients (`#EB1E91`, `#B5179E`, `#7209B7`, `#3A0CA3`) with SVG displacement distortion (`#alchemical-mystic-smoke`) and cyclical `:nth-child` offsets, creating non-repeating organic energy waves around catalog items without DOM reflow.
 
 [⬆️ Back to Table of Contents](#table-of-contents)
