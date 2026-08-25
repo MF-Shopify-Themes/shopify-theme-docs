@@ -1,0 +1,396 @@
+/* ==========================================================================
+   Arcanum Theme - Mystical Online Documentation Stylesheet
+   Crafted exclusively for Arcanum pages (/arcanum/*)
+   ========================================================================== */
+
+:root {
+  --arcanum-gold: #D4AF37;
+  --arcanum-gold-light: #F3E5AB;
+  --arcanum-gold-dark: #997A15;
+  --arcanum-purple: #6A5ACD;
+  --arcanum-purple-light: #9D8DF1;
+  --arcanum-purple-glow: rgba(138, 123, 246, 0.35);
+  --arcanum-bg: #07070A;
+  --arcanum-surface: #101017;
+  --arcanum-surface-elevated: #161622;
+  --arcanum-border: rgba(212, 175, 55, 0.22);
+  --arcanum-border-subtle: rgba(255, 255, 255, 0.08);
+  --arcanum-text: #E6E4E0;
+  --arcanum-text-muted: #A09DB0;
+  --font-arcanum-title: 'Cinzel', serif;
+  --font-arcanum-heading: 'Cormorant Garamond', serif;
+  --font-arcanum-body: 'EB Garamond', Georgia, serif;
+  --font-arcanum-mono: 'Fira Code', 'JetBrains Mono', Consolas, monospace;
+}
+
+/* Page Background & Atmosphere */
+html.arcanum-docs,
+body.arcanum-docs {
+  background-color: var(--arcanum-bg) !important;
+  background-image: 
+    radial-gradient(ellipse 900px 600px at 15% 15%, rgba(106, 90, 205, 0.16) 0%, rgba(20, 10, 35, 0.04) 55%, transparent 75%),
+    radial-gradient(ellipse 850px 550px at 85% 85%, rgba(212, 175, 55, 0.07) 0%, rgba(30, 20, 50, 0.03) 50%, transparent 75%),
+    radial-gradient(ellipse 700px 500px at 50% 50%, rgba(138, 123, 246, 0.06) 0%, transparent 70%) !important;
+  background-attachment: fixed !important;
+  color: var(--arcanum-text) !important;
+  font-family: var(--font-arcanum-body) !important;
+  font-size: 18px !important;
+  line-height: 1.75 !important;
+  letter-spacing: 0.01em !important;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Midnight Theme Layout Container Override */
+body.arcanum-docs .wrapper {
+  max-width: 960px !important;
+  margin: 0 auto !important;
+  padding: 30px 25px !important;
+  background: transparent !important;
+}
+
+body.arcanum-docs section {
+  width: 100% !important;
+  float: none !important;
+  padding: 40px 45px !important;
+  background: rgba(16, 16, 23, 0.85) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+  border: 1px solid var(--arcanum-border) !important;
+  border-radius: 8px !important;
+  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.6), 0 0 25px rgba(106, 90, 205, 0.1), inset 0 0 1px rgba(212, 175, 55, 0.4) !important;
+  position: relative;
+}
+
+/* Ornate Corner Glyphs on Container */
+body.arcanum-docs section::before {
+  content: "✦";
+  position: absolute;
+  top: 10px;
+  left: 14px;
+  font-size: 14px;
+  color: var(--arcanum-gold);
+  opacity: 0.6;
+}
+
+body.arcanum-docs section::after {
+  content: "✦";
+  position: absolute;
+  top: 10px;
+  right: 14px;
+  font-size: 14px;
+  color: var(--arcanum-gold);
+  opacity: 0.6;
+}
+
+/* Header & Top Bar */
+body.arcanum-docs #header {
+  background: rgba(10, 10, 15, 0.9) !important;
+  border-bottom: 1px solid var(--arcanum-border) !important;
+  backdrop-filter: blur(8px) !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4) !important;
+}
+
+body.arcanum-docs #header nav li a {
+  color: var(--arcanum-gold-light) !important;
+  font-family: var(--font-arcanum-title) !important;
+  font-size: 13px !important;
+  letter-spacing: 0.08em !important;
+  text-transform: uppercase !important;
+  transition: all 0.3s ease !important;
+}
+
+body.arcanum-docs #header nav li a:hover {
+  color: #FFFFFF !important;
+  text-shadow: 0 0 10px var(--arcanum-gold) !important;
+}
+
+/* Title Section */
+body.arcanum-docs #title {
+  border-bottom: 1px solid var(--arcanum-border) !important;
+  padding-bottom: 25px !important;
+  margin-bottom: 30px !important;
+  text-align: center;
+}
+
+body.arcanum-docs #title h1 {
+  font-family: var(--font-arcanum-title) !important;
+  font-size: 32px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.06em !important;
+  background: linear-gradient(135deg, #FFF6D6 0%, #D4AF37 50%, #C59A28 100%) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  text-shadow: 0 0 20px rgba(212, 175, 55, 0.25) !important;
+  margin-bottom: 8px !important;
+}
+
+body.arcanum-docs #title p {
+  color: var(--arcanum-text-muted) !important;
+  font-family: var(--font-arcanum-heading) !important;
+  font-size: 18px !important;
+  font-style: italic !important;
+}
+
+body.arcanum-docs #title hr {
+  display: none !important;
+}
+
+body.arcanum-docs #title .credits {
+  color: var(--arcanum-text-muted) !important;
+  font-size: 12px !important;
+  opacity: 0.7;
+}
+
+/* Headings Hierarchy */
+body.arcanum-docs h1,
+body.arcanum-docs h2,
+body.arcanum-docs h3,
+body.arcanum-docs h4 {
+  font-family: var(--font-arcanum-title) !important;
+  color: var(--arcanum-gold-light) !important;
+  letter-spacing: 0.04em !important;
+  font-weight: 600 !important;
+}
+
+body.arcanum-docs h1 {
+  font-size: 30px !important;
+  margin-top: 35px !important;
+  margin-bottom: 20px !important;
+  padding-bottom: 12px !important;
+  border-bottom: 1px solid var(--arcanum-border) !important;
+  background: linear-gradient(135deg, #FFF8E1 0%, #D4AF37 60%, #AA771C 100%) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  text-shadow: 0 0 25px rgba(212, 175, 55, 0.2) !important;
+}
+
+body.arcanum-docs h2 {
+  font-size: 24px !important;
+  margin-top: 32px !important;
+  margin-bottom: 16px !important;
+  color: #F0E6C8 !important;
+  border-bottom: 1px dashed rgba(212, 175, 55, 0.2) !important;
+  padding-bottom: 8px !important;
+}
+
+body.arcanum-docs h3 {
+  font-size: 20px !important;
+  margin-top: 26px !important;
+  margin-bottom: 12px !important;
+  color: var(--arcanum-purple-light) !important;
+}
+
+body.arcanum-docs h4 {
+  font-size: 17px !important;
+  font-family: var(--font-arcanum-heading) !important;
+  font-weight: 700 !important;
+  color: #DCD9F5 !important;
+}
+
+/* Links */
+body.arcanum-docs a {
+  color: var(--arcanum-gold) !important;
+  text-decoration: none !important;
+  border-bottom: 1px solid rgba(212, 175, 55, 0.3) !important;
+  transition: all 0.25s ease !important;
+}
+
+body.arcanum-docs a:hover {
+  color: #FFF !important;
+  border-bottom-color: var(--arcanum-gold-light) !important;
+  text-shadow: 0 0 10px rgba(212, 175, 55, 0.6), 0 0 20px var(--arcanum-purple-glow) !important;
+}
+
+/* Dividers */
+body.arcanum-docs hr {
+  border: none !important;
+  height: 1px !important;
+  background: linear-gradient(90deg, transparent 0%, rgba(212, 175, 55, 0.5) 50%, transparent 100%) !important;
+  margin: 35px 0 !important;
+  position: relative;
+}
+
+body.arcanum-docs hr::after {
+  content: "✧";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background: var(--arcanum-surface);
+  padding: 0 10px;
+  color: var(--arcanum-gold);
+  font-size: 13px;
+}
+
+/* Blockquotes / Callout Alerts */
+body.arcanum-docs blockquote {
+  background: rgba(22, 20, 32, 0.75) !important;
+  border-left: 3px solid var(--arcanum-purple) !important;
+  border-radius: 0 6px 6px 0 !important;
+  padding: 16px 20px !important;
+  margin: 22px 0 !important;
+  color: #D8D5E5 !important;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3), inset 0 0 15px rgba(106, 90, 205, 0.06) !important;
+  font-size: 17px !important;
+  line-height: 1.7 !important;
+}
+
+body.arcanum-docs blockquote strong {
+  color: #FFF !important;
+}
+
+/* Tables (Grimoire Codex Style) */
+body.arcanum-docs table {
+  width: 100% !important;
+  border-collapse: separate !important;
+  border-spacing: 0 !important;
+  margin: 25px 0 !important;
+  background: var(--arcanum-surface) !important;
+  border: 1px solid var(--arcanum-border) !important;
+  border-radius: 6px !important;
+  overflow: hidden !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4) !important;
+}
+
+body.arcanum-docs th {
+  background: linear-gradient(180deg, #1D1A2A 0%, #151320 100%) !important;
+  color: var(--arcanum-gold-light) !important;
+  font-family: var(--font-arcanum-title) !important;
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.05em !important;
+  padding: 12px 16px !important;
+  border-bottom: 1px solid var(--arcanum-border) !important;
+  border-right: 1px solid var(--arcanum-border-subtle) !important;
+}
+
+body.arcanum-docs th:last-child {
+  border-right: none !important;
+}
+
+body.arcanum-docs td {
+  padding: 12px 16px !important;
+  color: var(--arcanum-text) !important;
+  border-bottom: 1px solid var(--arcanum-border-subtle) !important;
+  border-right: 1px solid var(--arcanum-border-subtle) !important;
+  font-size: 16px !important;
+}
+
+body.arcanum-docs td:last-child {
+  border-right: none !important;
+}
+
+body.arcanum-docs tr:last-child td {
+  border-bottom: none !important;
+}
+
+body.arcanum-docs tr:hover td {
+  background: rgba(106, 90, 205, 0.08) !important;
+}
+
+/* Code & Preformatted */
+body.arcanum-docs code {
+  font-family: var(--font-arcanum-mono) !important;
+  font-size: 14px !important;
+  background: rgba(22, 20, 32, 0.85) !important;
+  color: #C3B5FA !important;
+  padding: 2px 6px !important;
+  border-radius: 4px !important;
+  border: 1px solid rgba(106, 90, 205, 0.25) !important;
+}
+
+body.arcanum-docs pre {
+  background: #0B0A10 !important;
+  border: 1px solid rgba(106, 90, 205, 0.3) !important;
+  border-radius: 6px !important;
+  padding: 16px 20px !important;
+  margin: 20px 0 !important;
+  overflow-x: auto !important;
+  box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.8), 0 0 15px rgba(106, 90, 205, 0.08) !important;
+}
+
+body.arcanum-docs pre code {
+  background: transparent !important;
+  border: none !important;
+  padding: 0 !important;
+  color: #E2DEFB !important;
+  font-size: 14px !important;
+  line-height: 1.6 !important;
+}
+
+/* Lists */
+body.arcanum-docs ul,
+body.arcanum-docs ol {
+  padding-left: 24px !important;
+  margin: 16px 0 !important;
+}
+
+body.arcanum-docs li {
+  margin-bottom: 8px !important;
+  color: var(--arcanum-text) !important;
+}
+
+body.arcanum-docs ul li::marker {
+  color: var(--arcanum-gold) !important;
+}
+
+/* Interactive & Form Elements */
+body.arcanum-docs input,
+body.arcanum-docs textarea {
+  background: #0B0A10 !important;
+  border: 1px solid rgba(106, 90, 205, 0.4) !important;
+  color: #EDEDED !important;
+  border-radius: 4px !important;
+  box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.6) !important;
+  transition: all 0.3s ease !important;
+}
+
+body.arcanum-docs input:focus,
+body.arcanum-docs textarea:focus {
+  outline: none !important;
+  border-color: var(--arcanum-purple-light) !important;
+  box-shadow: 0 0 12px var(--arcanum-purple-glow), inset 0 0 8px rgba(106, 90, 205, 0.3) !important;
+}
+
+body.arcanum-docs button[type="submit"],
+body.arcanum-docs .btn-arcanum {
+  background: linear-gradient(135deg, #6A5ACD 0%, #483D8B 100%) !important;
+  border: 1px solid rgba(212, 175, 55, 0.4) !important;
+  color: #FFFFFF !important;
+  font-family: var(--font-arcanum-title) !important;
+  font-size: 14px !important;
+  letter-spacing: 0.08em !important;
+  text-transform: uppercase !important;
+  padding: 10px 24px !important;
+  border-radius: 4px !important;
+  cursor: pointer !important;
+  box-shadow: 0 4px 15px rgba(106, 90, 205, 0.4) !important;
+  transition: all 0.3s ease !important;
+}
+
+body.arcanum-docs button[type="submit"]:hover,
+body.arcanum-docs .btn-arcanum:hover {
+  background: linear-gradient(135deg, #8A7BF6 0%, #6A5ACD 100%) !important;
+  box-shadow: 0 0 20px rgba(138, 123, 246, 0.7), 0 0 8px rgba(212, 175, 55, 0.6) !important;
+  transform: translateY(-1px) !important;
+}
+
+/* Custom Scrollbar for Arcanum */
+body.arcanum-docs::-webkit-scrollbar {
+  width: 10px;
+}
+
+body.arcanum-docs::-webkit-scrollbar-track {
+  background: #07070A;
+}
+
+body.arcanum-docs::-webkit-scrollbar-thumb {
+  background: #252236;
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  border-radius: 5px;
+}
+
+body.arcanum-docs::-webkit-scrollbar-thumb:hover {
+  background: #3B3556;
+  border-color: var(--arcanum-gold);
+}
