@@ -25,4 +25,16 @@
     if (document.body) document.body.classList.add('bioforma-docs');
   });
 </script>
+{% else %}
+<!-- Marco Francaviglia Brand Portal Stylesheet -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{{ '/assets/css/mf-portal-docs.css' | relative_url }}">
+<script>
+  document.documentElement.classList.add('mf-portal-docs');
+  document.addEventListener('DOMContentLoaded', function() {
+    if (document.body) document.body.classList.add('mf-portal-docs');
+  });
+</script>
 {% endif %}

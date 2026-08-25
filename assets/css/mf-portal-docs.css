@@ -1,0 +1,365 @@
+/* ==========================================================================
+   Marco Francaviglia - Theme Documentation Portal Stylesheet
+   Crafted to mirror https://marcofrancaviglia.it (Tailwind slate-950 aesthetic)
+   Applied to root portal (/) and general guides (/general/*)
+   ========================================================================== */
+
+:root {
+  --mf-bg: #020617;
+  --mf-surface: #0B1120;
+  --mf-surface-card: rgba(15, 23, 42, 0.8);
+  --mf-surface-hover: rgba(30, 41, 59, 0.7);
+  --mf-border: rgba(51, 65, 85, 0.6);
+  --mf-border-focus: #38BDF8;
+  --mf-border-glow: rgba(56, 189, 248, 0.3);
+  --mf-blue: #3B82F6;
+  --mf-blue-light: #60A5FA;
+  --mf-sky: #38BDF8;
+  --mf-indigo: #6366F1;
+  --mf-text: #F8FAFC;
+  --mf-text-muted: #94A3B8;
+  --mf-text-subtle: #64748B;
+  --font-mf-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mf-mono: 'JetBrains Mono', 'Fira Code', Consolas, monospace;
+}
+
+/* Page Background & Atmosphere */
+html.mf-portal-docs,
+body.mf-portal-docs {
+  background-color: var(--mf-bg) !important;
+  background-image: 
+    radial-gradient(ellipse 900px 500px at 15% 10%, rgba(59, 130, 246, 0.12) 0%, transparent 65%),
+    radial-gradient(ellipse 800px 500px at 85% 80%, rgba(99, 102, 241, 0.1) 0%, transparent 65%),
+    radial-gradient(ellipse 600px 400px at 50% 45%, rgba(56, 189, 248, 0.05) 0%, transparent 70%),
+    linear-gradient(rgba(255, 255, 255, 0.015) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.015) 1px, transparent 1px) !important;
+  background-size: 100% 100%, 100% 100%, 100% 100%, 32px 32px, 32px 32px !important;
+  background-attachment: fixed !important;
+  color: var(--mf-text) !important;
+  font-family: var(--font-mf-sans) !important;
+  font-size: 16px !important;
+  line-height: 1.7 !important;
+  letter-spacing: -0.01em !important;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Midnight Theme Layout Container Override */
+body.mf-portal-docs .wrapper {
+  max-width: 980px !important;
+  margin: 0 auto !important;
+  padding: 32px 24px !important;
+  background: transparent !important;
+}
+
+body.mf-portal-docs section {
+  width: 100% !important;
+  float: none !important;
+  padding: 40px 48px !important;
+  background: var(--mf-surface-card) !important;
+  backdrop-filter: blur(16px) !important;
+  -webkit-backdrop-filter: blur(16px) !important;
+  border: 1px solid rgba(59, 130, 246, 0.2) !important;
+  border-radius: 14px !important;
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.6), 0 0 30px rgba(56, 189, 248, 0.05) !important;
+  position: relative;
+}
+
+/* Header & Top Bar */
+body.mf-portal-docs #header {
+  background: rgba(2, 6, 23, 0.9) !important;
+  border-bottom: 1px solid rgba(30, 41, 59, 0.8) !important;
+  backdrop-filter: blur(12px) !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4) !important;
+}
+
+body.mf-portal-docs #header nav li a {
+  color: var(--mf-text-muted) !important;
+  font-family: var(--font-mf-sans) !important;
+  font-size: 13.5px !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.02em !important;
+  transition: all 0.2s ease !important;
+}
+
+body.mf-portal-docs #header nav li a:hover {
+  color: #FFFFFF !important;
+  text-shadow: 0 0 12px rgba(56, 189, 248, 0.6) !important;
+}
+
+/* Title Section */
+body.mf-portal-docs #title {
+  border-bottom: 1px solid rgba(51, 65, 85, 0.6) !important;
+  padding-bottom: 24px !important;
+  margin-bottom: 32px !important;
+  text-align: center;
+}
+
+body.mf-portal-docs #title h1 {
+  font-family: var(--font-mf-sans) !important;
+  font-size: 32px !important;
+  font-weight: 800 !important;
+  letter-spacing: -0.025em !important;
+  background: linear-gradient(135deg, #FFFFFF 0%, #93C5FD 50%, #38BDF8 100%) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  text-shadow: 0 0 25px rgba(56, 189, 248, 0.2) !important;
+  margin-bottom: 8px !important;
+}
+
+body.mf-portal-docs #title p {
+  color: var(--mf-text-muted) !important;
+  font-family: var(--font-mf-sans) !important;
+  font-size: 16px !important;
+  font-weight: 400 !important;
+}
+
+body.mf-portal-docs #title hr {
+  display: none !important;
+}
+
+body.mf-portal-docs #title .credits {
+  color: var(--mf-text-subtle) !important;
+  font-size: 12px !important;
+}
+
+/* Headings Hierarchy */
+body.mf-portal-docs h1,
+body.mf-portal-docs h2,
+body.mf-portal-docs h3,
+body.mf-portal-docs h4 {
+  font-family: var(--font-mf-sans) !important;
+  color: var(--mf-text) !important;
+  letter-spacing: -0.02em !important;
+  font-weight: 700 !important;
+}
+
+body.mf-portal-docs h1 {
+  font-size: 28px !important;
+  margin-top: 36px !important;
+  margin-bottom: 20px !important;
+  padding-bottom: 12px !important;
+  border-bottom: 1px solid rgba(51, 65, 85, 0.6) !important;
+  background: linear-gradient(135deg, #FFFFFF 0%, #BAE6FD 60%, #38BDF8 100%) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+}
+
+body.mf-portal-docs h2 {
+  font-size: 22px !important;
+  margin-top: 32px !important;
+  margin-bottom: 16px !important;
+  color: #F8FAFC !important;
+  border-bottom: 1px solid rgba(51, 65, 85, 0.4) !important;
+  padding-bottom: 8px !important;
+}
+
+body.mf-portal-docs h3 {
+  font-size: 19px !important;
+  margin-top: 28px !important;
+  margin-bottom: 14px !important;
+  color: var(--mf-sky) !important;
+}
+
+body.mf-portal-docs h4 {
+  font-size: 16.5px !important;
+  color: var(--mf-blue-light) !important;
+}
+
+/* Links */
+body.mf-portal-docs a {
+  color: var(--mf-sky) !important;
+  text-decoration: none !important;
+  border-bottom: 1px solid rgba(56, 189, 248, 0.35) !important;
+  transition: all 0.2s ease !important;
+}
+
+body.mf-portal-docs a:hover {
+  color: #FFFFFF !important;
+  border-bottom-color: #FFFFFF !important;
+  text-shadow: 0 0 12px rgba(56, 189, 248, 0.5) !important;
+}
+
+/* Dividers */
+body.mf-portal-docs hr {
+  border: none !important;
+  height: 1px !important;
+  background: linear-gradient(90deg, transparent 0%, rgba(56, 189, 248, 0.4) 50%, transparent 100%) !important;
+  margin: 36px 0 !important;
+}
+
+/* Blockquotes / Callout Alerts */
+body.mf-portal-docs blockquote {
+  background: rgba(15, 23, 42, 0.9) !important;
+  border-left: 3px solid var(--mf-blue) !important;
+  border-radius: 0 8px 8px 0 !important;
+  padding: 16px 20px !important;
+  margin: 22px 0 !important;
+  color: #E2E8F0 !important;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.3) !important;
+  font-size: 15.5px !important;
+  line-height: 1.7 !important;
+}
+
+body.mf-portal-docs blockquote strong {
+  color: #FFFFFF !important;
+}
+
+/* Tables */
+body.mf-portal-docs table {
+  width: 100% !important;
+  border-collapse: separate !important;
+  border-spacing: 0 !important;
+  margin: 25px 0 !important;
+  background: #0B1120 !important;
+  border: 1px solid rgba(51, 65, 85, 0.6) !important;
+  border-radius: 8px !important;
+  overflow: hidden !important;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.4) !important;
+}
+
+body.mf-portal-docs th {
+  background: #0F172A !important;
+  color: #F8FAFC !important;
+  font-family: var(--font-mf-sans) !important;
+  font-size: 13.5px !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.03em !important;
+  text-transform: uppercase !important;
+  padding: 12px 16px !important;
+  border-bottom: 1px solid rgba(51, 65, 85, 0.6) !important;
+  border-right: 1px solid rgba(255, 255, 255, 0.06) !important;
+}
+
+body.mf-portal-docs th:last-child {
+  border-right: none !important;
+}
+
+body.mf-portal-docs td {
+  padding: 12px 16px !important;
+  color: var(--mf-text) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06) !important;
+  border-right: 1px solid rgba(255, 255, 255, 0.06) !important;
+  font-size: 15px !important;
+}
+
+body.mf-portal-docs td:last-child {
+  border-right: none !important;
+}
+
+body.mf-portal-docs tr:last-child td {
+  border-bottom: none !important;
+}
+
+body.mf-portal-docs tr:hover td {
+  background: rgba(59, 130, 246, 0.06) !important;
+}
+
+/* Code & Preformatted */
+body.mf-portal-docs code {
+  font-family: var(--font-mf-mono) !important;
+  font-size: 13.5px !important;
+  background: rgba(30, 41, 59, 0.8) !important;
+  color: var(--mf-sky) !important;
+  padding: 2px 6px !important;
+  border-radius: 4px !important;
+  border: 1px solid rgba(56, 189, 248, 0.2) !important;
+}
+
+body.mf-portal-docs pre {
+  background: #020617 !important;
+  border: 1px solid rgba(51, 65, 85, 0.7) !important;
+  border-radius: 8px !important;
+  padding: 18px 22px !important;
+  margin: 22px 0 !important;
+  overflow-x: auto !important;
+  box-shadow: inset 0 0 16px rgba(0, 0, 0, 0.8) !important;
+}
+
+body.mf-portal-docs pre code {
+  background: transparent !important;
+  border: none !important;
+  padding: 0 !important;
+  color: #E2E8F0 !important;
+  font-size: 13.5px !important;
+  line-height: 1.65 !important;
+}
+
+/* Lists */
+body.mf-portal-docs ul,
+body.mf-portal-docs ol {
+  padding-left: 24px !important;
+  margin: 16px 0 !important;
+}
+
+body.mf-portal-docs li {
+  margin-bottom: 8px !important;
+  color: var(--mf-text) !important;
+}
+
+body.mf-portal-docs ul li::marker {
+  color: var(--mf-sky) !important;
+}
+
+/* Interactive & Form Elements */
+body.mf-portal-docs input,
+body.mf-portal-docs textarea,
+body.mf-portal-docs select {
+  background: #020617 !important;
+  border: 1px solid rgba(51, 65, 85, 0.8) !important;
+  color: #F8FAFC !important;
+  border-radius: 6px !important;
+  padding: 10px 14px !important;
+  box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.5) !important;
+  transition: all 0.2s ease !important;
+}
+
+body.mf-portal-docs input:focus,
+body.mf-portal-docs textarea:focus,
+body.mf-portal-docs select:focus {
+  outline: none !important;
+  border-color: var(--mf-sky) !important;
+  box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.25) !important;
+}
+
+body.mf-portal-docs button[type="submit"],
+body.mf-portal-docs .btn-mf {
+  background: linear-gradient(135deg, #2563EB 0%, #1D4ED8 100%) !important;
+  border: 1px solid rgba(59, 130, 246, 0.5) !important;
+  color: #FFFFFF !important;
+  font-family: var(--font-mf-sans) !important;
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.02em !important;
+  padding: 10px 24px !important;
+  border-radius: 6px !important;
+  cursor: pointer !important;
+  box-shadow: 0 4px 14px rgba(37, 99, 235, 0.35) !important;
+  transition: all 0.2s ease !important;
+}
+
+body.mf-portal-docs button[type="submit"]:hover,
+body.mf-portal-docs .btn-mf:hover {
+  background: linear-gradient(135deg, #3B82F6 0%, #2563EB 100%) !important;
+  box-shadow: 0 0 20px rgba(59, 130, 246, 0.6) !important;
+  transform: translateY(-1px) !important;
+}
+
+/* Custom Scrollbar for Portal */
+body.mf-portal-docs::-webkit-scrollbar {
+  width: 10px;
+}
+
+body.mf-portal-docs::-webkit-scrollbar-track {
+  background: #020617;
+}
+
+body.mf-portal-docs::-webkit-scrollbar-thumb {
+  background: #1E293B;
+  border: 1px solid rgba(51, 65, 85, 0.5);
+  border-radius: 5px;
+}
+
+body.mf-portal-docs::-webkit-scrollbar-thumb:hover {
+  background: #334155;
+  border-color: var(--mf-sky);
+}
