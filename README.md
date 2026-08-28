@@ -6,17 +6,17 @@ Welcome to the official documentation portal for Shopify themes developed by **M
 
 ## 🔮 [Arcanum Theme](./arcanum/index.md)
 
-Tema Shopify ad altissime prestazioni per brand **esoterici, occulti, tarocchi, cristalli ed erbe sacre**. Include 4 preset visivi (*Dark, Vampire, Runic, Celestial*), filtri per intenti metafisici nativi, visualizzatori 3D di tarocchi, matrici di sicurezza per cristalli, abbonamenti mystery box e blog shoppable.
+High-performance Shopify theme engineered for **Esoteric, Metaphysical, Occult, Witchcraft, Tarot, Crystals, Herbs, and Sacred Craft** brands. Features 4 atmospheric presets (*Dark, Vampire, Runic, Celestial*), native metaphysical intent filters, interactive 3D tarot card viewers, crystal safety matrices, mystery box subscriptions, and shoppable editorial blogs.
 
-👉 **[Vai alla Documentazione di Arcanum](./arcanum/index.md)**
+👉 **[Explore Arcanum Documentation](./arcanum/index.md)**
 
 ---
 
 ## 🌿 [BioForma Theme](./bioforma/index.md)
 
-Tema Shopify ad altissime prestazioni per brand di **nootropi, integratori, salute e benessere**. Include 3 preset (*Clinical, BioHacker, NutraPure*), schede Supplement Facts native, certificati di analisi ISO/CoA, tabelle comparative cliniche e carrello slide-out AJAX.
+High-performance Shopify theme engineered for **Nootropics, dietary supplements, health, and beauty** brands. Features 3 presets (*Clinical, BioHacker, NutraPure*), native Supplement Facts panels, ISO/CoA analysis certificates, clinical comparison tables, and slide-out AJAX cart.
 
-👉 **[Vai alla Documentazione di BioForma](./bioforma/index.md)**
+👉 **[Explore BioForma Documentation](./bioforma/index.md)**
 
 ### 🚀 General Guides
 
