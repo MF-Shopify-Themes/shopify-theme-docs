@@ -41,6 +41,6 @@ Click on any topic below to learn how to configure your Arcanum theme using the 
 
 Need help with Arcanum? Fill out the form below to open a support ticket with our engineering team.
 
-{% include contact-form.html %}
+{% include contact-form-arcanum.html %}
 
 [⬅️ Back to Main Index](../README.md)

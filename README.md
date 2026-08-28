@@ -35,10 +35,6 @@ Common instructions applicable across our Shopify ecosystem: 
 
 ## ✉️ Support & Feedback
 
-Need help with our themes? Please check our **[Troubleshooting Guide](./general/troubleshooting.md)** first to see if your issue can be resolved immediately. 
-
-If you cannot find the answer there, please fill out the form below to open a support ticket:
-
-{% include contact-form.html %}
+Need help with our themes? Please check our **[Troubleshooting Guide](./general/troubleshooting.md)** first, or visit the specific documentation hub for your theme (**[Arcanum](./arcanum/index.md)** or **[BioForma](./bioforma/index.md)**) to submit a targeted support ticket.
 
 © 2026 Marco Francaviglia. All rights reserved. Shopify is a trademark of Shopify Inc.

@@ -36,7 +36,7 @@ Click on any topic below to learn how to configure your BioForma theme using the
 
 Need help with BioForma? Fill out the form below to open a support ticket.
 
-{% include contact-form.html %}
+{% include contact-form-bioforma.html %}
 
 
 [⬅️ Back to Main Index](../README.md)

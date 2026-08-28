@@ -27,9 +27,6 @@ Here are the solutions to the most common issues you might encounter while setti
 
 ### ✉️ Still Need Help?
 
-Need help with our themes? Fill out the form below to open a support ticket.
-
-{% include contact-form.html %}
-
+Need help with our themes? Please visit your theme documentation hub (**[Arcanum](../arcanum/index.md)** or **[BioForma](../bioforma/index.md)**) to submit a targeted support ticket with our engineering team.
 
 [⬅️ Back to Main Index](../README.md)
