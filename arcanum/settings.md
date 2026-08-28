@@ -60,6 +60,7 @@ Configure global settings for recurring monthly mystery boxes and ritual restock
 * **Cart Type**: Choose between **Slide-Out Altar Drawer** or standard page.
 * **Tiered Consecration Bar**: Enable dynamic free gift / free shipping progress threshold (e.g., *"Add $15 more for Free Consecrated Incense"*).
 * **Quick Altar Upsells**: Enable 1-click add-on items inside the cart drawer (velvet pouches, matches, charcoal discs, sage bundles).
+* **Debounced Non-Intrusive Auto-Open (2.5s UX)**: Cart drawer auto-open is debounced by 2.5 seconds upon adding an item (with an immediate pulse on the header cart count badge). Any subsequent addition resets the 2.5s timer, giving shoppers freedom to rapidly add multiple items without modal disruption.
 
 ---
 

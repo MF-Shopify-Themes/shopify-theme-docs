@@ -10,16 +10,16 @@ Welcome to the official documentation hub for **Arcanum**, the premier high-perf
 > [!IMPORTANT]
 > ⚡ **Native-First Zero-App Advantage**: Arcanum integrates native *Metaphysical Intent Filters*, interactive 3D *Tarot Card Flip Galleries*, *Crystal Safety & Mohs Hardness Matrices*, *Ritual Kit & Altar Bundle Builders*, recurring *Mystery Box Subscriptions*, real-time *Lunar Phase Bars*, and *Shoppable Editorial Articles* directly into Liquid & native Web Components. This eliminates the need for 6–12 third-party apps ($60–$120/month saved) and ensures a blistering **95–100 / 100 on Lighthouse Mobile** with sub-second FCP (`0.8s`) and zero layout shifts (`CLS: 0.000`).
 
-### ⚡ Real-World Live Storefront Performance Benchmarks
+### ⚡ Real-World Live Storefront Performance Benchmarks (Lighthouse Mobile)
 
-Arcanum delivers ultra-fast, atmospheric page loads for actual spiritual shoppers on live demo stores, measured under strict Google Lighthouse Mobile conditions (Moto G Power, slow 4G network, 4x CPU slowdown):
+Arcanum delivers ultra-fast, atmospheric page loads for actual spiritual shoppers on live demo stores, measured under strict Google Lighthouse Mobile conditions (Moto G Power, slow 4G network, 4x CPU slowdown, median 3 runs):
 
-| Theme Preset / Store | Mobile Performance | Core Web Vitals | Real Shopper Impact |
-| :--- | :---: | :---: | :--- |
-| **Dark (Alchimista)** | **99–100 / 100** | FCP: `0.8s` • LCP: `2.0s` • CLS: `0.000` | Deep obsidian speed, instant catalog interaction |
-| **Vampire (Gotico Romantico)** | **98–100 / 100** | FCP: `0.9s` • LCP: `2.1s` • CLS: `0.000` | High-impact gothic styling with zero render delays |
-| **Runic (Druidico)** | **99 / 100** | FCP: `0.8s` • LCP: `2.0s` • CLS: `0.000` | Dynamic runic glyph offsets with 100% A11y score |
-| **Celestial (Olistico di Lusso)** | **97–99 / 100** | FCP: `0.9s` • LCP: `2.2s` • CLS: `0.000` | Pure CSS starlight glow with zero GPU lag |
+| Theme Preset / Store | Homepage | Product Page | Collection Page | Median Status | Core Web Vitals |
+| :--- | :---: | :---: | :---: | :---: | :--- |
+| **Dark (Alchimista)** | **89 / 100** | **90 / 100** | **85 / 100** | ✅ Pass | FCP: `2.0s` • LCP: `2.3–3.1s` • CLS: `0.000` |
+| **Vampire (Gotico Romantico)** | **97 / 100** | **92 / 100** | **93 / 100** | ✅ Pass | FCP: `1.7s` • LCP: `2.0–2.4s` • CLS: `0.000` |
+| **Runic (Druidico)** | **86 / 100** | **83 / 100** | **90 / 100** | ✅ Pass | FCP: `1.7s` • LCP: `2.5–3.2s` • CLS: `0.000` |
+| **Celestial (Olistico di Lusso)** | **97 / 100** | **95 / 100** | **91 / 100** | ✅ Pass | FCP: `1.7s` • LCP: `2.0–2.5s` • CLS: `0.000` |
 
 > [!NOTE]
 > **Continuous Theme Store Compliance**:

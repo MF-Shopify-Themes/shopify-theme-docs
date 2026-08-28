@@ -221,10 +221,13 @@ The BioForma product page section (`sections/product.liquid`) features an enterp
 ---
 
 <a id="cart-drawer"></a>
-### 🛒 Smart AJAX Cart Drawer (`<cart-drawer>`)
+### 🛒 Smart AJAX Cart Drawer & Uninterrupted Add-to-Cart (`<cart-drawer>`)
 
-BioForma includes an advanced side-out sliding AJAX cart drawer (`sections/cart-drawer.liquid` & `assets/cart-drawer.js`) engineered to maximize Average Order Value (AOV) and conversion.
+BioForma includes an advanced side-out sliding AJAX cart drawer (`sections/cart-drawer.liquid` & `assets/cart-drawer.js`) engineered to maximize Average Order Value (AOV) and conversions while keeping the buyer's browsing flow completely frictionless.
 
+* **Debounced Non-Intrusive Auto-Open (2.5s Rule)**: Eliminates aggressive, screen-blocking popups upon adding items to the cart. When a customer adds an item (via PDP, collection quick-add, or bundles), the theme initiates a 2.5-second countdown (`scheduleAutoOpen(2500)`). If the customer adds another item within that window, the timer resets and restarts from 2.5s, allowing effortless multi-item buying.
+* **Instant Header Counter Pulse**: Synchronizes the cart state immediately via AJAX and provides instant visual feedback through a CSS scale keyframe micro-animation (`.cart-count-pulse`) on the header badge.
+* **Manual Trigger Integration**: Clicking the header cart icon opens the drawer instantly and clears any pending timers. Opening and closing states seamlessly cancel background timers.
 * **Dynamic Price Interception**: Automatically syncs with native Shopify subscription selling plans and volume discounts, displaying struck-through original vs. final prices in real-time.
 * **Clinical Savings Badge**: Renders a prominent savings indicator (`Saved $X.XX`) dynamically updated based on cart item metadata.
 * **Free Shipping Threshold Bar**: Features an active progress indicator tracking remaining amount required to unlock free shipping.
