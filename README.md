@@ -4,25 +4,19 @@ Welcome to the official documentation portal for Shopify themes developed by **M
 
 ### 🎨 Our Themes
 
-### 🔮 Arcanum Theme
+## 🔮 [Arcanum Theme](./arcanum/index.md)
 
-Arcanum is an enterprise-grade, high-performance Shopify theme engineered for **Esoteric, Metaphysical, Occult, Witchcraft, Tarot, Crystals, Herbs, Orgonite, and Sacred Craft brands**. It features 4 atmospheric presets, native metaphysical metafield filtering, interactive 3D tarot viewers, crystal safety matrices, mystery box subscriptions, and shoppable editorial blogs.
+Tema Shopify ad altissime prestazioni per brand **esoterici, occulti, tarocchi, cristalli ed erbe sacre**. Include 4 preset visivi (*Dark, Vampire, Runic, Celestial*), filtri per intenti metafisici nativi, visualizzatori 3D di tarocchi, matrici di sicurezza per cristalli, abbonamenti mystery box e blog shoppable.
 
-👉 **[Explore the Arcanum Documentation Hub](./arcanum/index.md)**
+👉 **[Vai alla Documentazione di Arcanum](./arcanum/index.md)**
 
-* 🚀 **[Quick Start & Installation](./arcanum/installation.md)** – Step-by-step installation instructions.
-* 🧩 **[Theme Sections, Blocks & Features](./arcanum/sections.md)** – Detailed guides for all metaphysical sections and hybrid product layouts.
-* ⚙️ **[Theme Settings & 4 Style Presets](./arcanum/settings.md)** – Configure presets (*Dark, Vampire, Runic, Celestial*), typography, and subscriptions.
+---
 
-### 🌿 BioForma Theme
+## 🌿 [BioForma Theme](./bioforma/index.md)
 
-BioForma is a premium, high-performance Shopify theme specifically engineered for **Nootropics, dietary supplements, health, and beauty brands**. It features conversion-optimized layouts, clear ingredient transparency blocks, and compliance-ready sections tailored for the wellness industry. 
+Tema Shopify ad altissime prestazioni per brand di **nootropi, integratori, salute e benessere**. Include 3 preset (*Clinical, BioHacker, NutraPure*), schede Supplement Facts native, certificati di analisi ISO/CoA, tabelle comparative cliniche e carrello slide-out AJAX.
 
-👉 **[Explore the BioForma Documentation Hub](./bioforma/index.md)**
-
-* 🚀 **[Quick Start & Installation](./bioforma/installation.md)** – Get your theme up and running in minutes.
-* 🧩 **[Theme Sections & Blocks](./bioforma/sections.md)** – Learn how to customize your homepage, ingredient grids, and product pages.
-* ⚙️ **[Theme Settings](./bioforma/settings.md)** – Configure typography, wellness-focused color palettes, and layout options.
+👉 **[Vai alla Documentazione di BioForma](./bioforma/index.md)**
 
 ### 🚀 General Guides
 
